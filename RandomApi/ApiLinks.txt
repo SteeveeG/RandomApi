@@ -1,8 +1,4 @@
-https://github.com/alexwohlbruck/cat-facts
-https://github.com/cataas/cataas
-https://dukengn.github.io/Dog-facts-API/
-https://kinduff.github.io/dog-api/
-https://www.fishwatch.gov/developers
+https://github.com/alexwohlbruck/cat-facts --Done
 https://placebear.com/
 https://place.dog/
 https://placekitten.com/
@@ -49,6 +45,7 @@ https://techy-api.vercel.app/
 https://github.com/beanboi7/yomomma-apiv2?tab=readme-ov-file
 https://baconmockup.com/
 https://coffee.alexflipnote.dev
+https://kinduff.github.io/dog-api/
 https://github.com/surhud004/Foodish#readme
 https://www.fruityvice.com/
 https://www.openbrewerydb.org/
