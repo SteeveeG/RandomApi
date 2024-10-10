@@ -2,13 +2,9 @@ https://github.com/alexwohlbruck/cat-facts --Done
 https://placebear.com/
 https://place.dog/
 https://placekitten.com/
-https://random-d.uk/api
-https://randomfox.ca/floof/
-https://xeno-canto.org/explore/api
-https://github.com/AniList/ApiV2-GraphQL-Docs?tab=readme-ov-file
-https://github.com/Animechan-API/animechan
-https://chandan-02.github.io/anime-facts-rest-api/
-https://www.animenewsnetwork.com/encyclopedia/api.php
+https://random-d.uk/api --Done
+https://randomfox.ca/floof/ --Done
+https://github.com/Animechan-API/animechan --Done
 https://catboys.com/api
 https://danbooru.donmai.us/wiki_pages/help:api
 https://jikan.moe/

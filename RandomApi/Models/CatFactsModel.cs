@@ -1,6 +1,6 @@
 namespace RandomApi.Models;
 
-public class AlexWohlbruckCatFactsModel
+public class CatFactsModel
 {
     public status status { get; set; }
     public string _id { get; set; }
