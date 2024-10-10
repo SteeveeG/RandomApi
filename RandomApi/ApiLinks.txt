@@ -5,23 +5,13 @@ https://placekitten.com/
 https://random-d.uk/api --Done
 https://randomfox.ca/floof/ --Done
 https://github.com/Animechan-API/animechan --Done
-https://catboys.com/api
-https://danbooru.donmai.us/wiki_pages/help:api
-https://jikan.moe/
-https://docs.nekos.best/
-https://shikimori.one/api/doc
-https://soruly.github.io/trace.moe-api/#/
-https://github.com/Waifu-pics/waifu-api
-https://api.artic.edu/docs/#quick-start
-http://colormind.io/api-access/
-https://github.com/cheatsnake/emojihub
-https://pro.europeana.eu/discover-the-data/apis
-https://metmuseum.github.io/
-https://php-noise.com/
-https://pixelencounter.com/api
-https://developers.google.com/books?hl=de
-https://github.com/CrossRef/rest-api-doc
-https://www.penguinrandomhouse.biz/webservices/rest/
+https://jikan.moe/ --Done
+https://docs.nekos.best/ --Done
+https://github.com/Waifu-pics/waifu-api --Done
+https://github.com/cheatsnake/emojihub --Maybe Down try again later
+https://metmuseum.github.io/ --Done
+https://php-noise.com/ --Done
+https://developers.google.com/books?hl=de --Done
 https://github.com/thundercomb/poetrydb#readme
 https://api-thirukkural.web.app/
 https://wizard-world-api.herokuapp.com/swagger/index.html (need names of Harry potter)

@@ -20,6 +20,9 @@ public class MainViewModel : ViewModelBase
         CopyTextImgCommand = new DelegateCommand(CopyTextImg);
         ChangeThemeCommand = new DelegateCommand(ChangeTheme);
         VisitApiWebCommand = new DelegateCommand(VisitApiWeb);
+        IsImgVisible = true;
+        IsQuoteVisible = true;
+        ApiCalls.ApiCalls.Init();
     }
 
     private async void ApiCall()
@@ -43,7 +46,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
  
-        switch (2)
+        switch (3)
         {
             case 0:
             Quote = await ApiCalls.ApiCalls.CatFacts();
@@ -70,6 +73,17 @@ public class MainViewModel : ViewModelBase
                 {
                     ImgLink = animeRecommendationResult.data.images.jpg.large_image_url;
                 }
+                ApiWebAddress = "https://jikan.moe/";
+                break;
+            case 3:   
+                var googleBooks = await ApiCalls.ApiCalls.GoogleBooks(); 
+                var i = random.Next(0, googleBooks.items.Count);
+                Quote = $"Book Recommendation: {googleBooks.items[i].volumeInfo.title} from" +
+                        $" {googleBooks.items[i].volumeInfo.authors.First()} and the description: {googleBooks.items[i].volumeInfo.description}";
+                if (googleBooks.items[i].volumeInfo.imageLinks != null)
+                {
+                    ImgLink = googleBooks.items[i].volumeInfo.imageLinks.thumbnail;
+                }
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
                 break;
             
@@ -78,7 +92,7 @@ public class MainViewModel : ViewModelBase
     private async void ApiCallImg()
     {
         var random = new Random();
-        switch (1)
+        switch (5)
         {
             case 0:
                 ImgLink = await ApiCalls.ApiCalls.RandomDuk();
@@ -87,6 +101,25 @@ public class MainViewModel : ViewModelBase
             case 1:
                 ImgLink = await ApiCalls.ApiCalls.RandomFox();
                 ApiWebAddress = "https://randomfox.ca/";
+                break;
+            case 2:
+                var results = await ApiCalls.ApiCalls.NekoBest();
+                Quote = $"Artist: {results.artist_name}";
+                ImgLink = results.url;
+                ApiWebAddress = "https://docs.nekos.best/";
+                break;
+            case 3:
+                ImgLink = await ApiCalls.ApiCalls.WaifuPics();
+                ApiWebAddress = "https://waifu.pics/";
+                break;   
+            case 4:
+                var result = await ApiCalls.ApiCalls.RandomArtWork();
+                ImgLink = result.primaryimage;
+                ApiWebAddress = "https://metmuseum.github.io/";
+                break;   
+            case 5:
+                ImgLink = await ApiCalls.ApiCalls.RandomNoiseColor();
+                ApiWebAddress = "https://metmuseum.github.io/";
                 break;
             
         }
