@@ -7,5 +7,19 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
     </PropertyGroup>
+    <ItemGroup>
+      <None Remove="Assets\Custom.ttf" />
+      <Resource Include="Assets\Custom.ttf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Assets\JacquardaBastarda9.ttf" />
+      <Resource Include="Assets\JacquardaBastarda9.ttf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Assets\InconsolataCondensed.ttf" />
+      <Resource Include="Assets\InconsolataCondensed.ttf">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
 
 </Project>

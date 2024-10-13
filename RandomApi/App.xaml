@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:RandomApi"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Custom">/RandomApi;component/Assets/Custom.ttf#Untitled2</FontFamily>
+        <FontFamily x:Key="JacquardaBastarda9">/RandomApi;component/Assets/JacquardaBastarda9.ttf#Jacquarda Bastarda 9</FontFamily>
+        <FontFamily x:Key="InconsolataCondensed">/RandomApi;component/Assets/InconsolataCondensed.ttf#Inconsolata Condensed</FontFamily>
+ 
     </Application.Resources>
 </Application>

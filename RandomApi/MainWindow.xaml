@@ -8,36 +8,60 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
-        <local:MainViewModel/>
+        <local:MainViewModel />
     </Window.DataContext>
     <Window.Resources>
-        <boolto:BoolToVisibilityConverter  x:Key="BoolToVisibilityConverter" />
+        <ResourceDictionary Source="Style.xaml" />
     </Window.Resources>
     <Grid Background="#FFE5E5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="130"/>
-            <RowDefinition  Height="60"/>
+            <RowDefinition Height="130" />
+            <RowDefinition Height="60" />
             <RowDefinition />
-            <RowDefinition />
-  
+            <RowDefinition Height="Auto" />
+
         </Grid.RowDefinitions>
-       
+
         <Label Grid.Row="0" HorizontalAlignment="Center"
                FontSize="80" VerticalAlignment="Center"
-               >The Random APi
+               FontFamily="{StaticResource Custom}">
+            The Random ÿPi
         </Label>
-        <Button Grid.Row="1" Width="150" Content="Click Meee" Command="{Binding ApiCallCommand}"/>
-        
-        <Label Grid.Row="2" Content="{Binding Quote}" Visibility="{Binding IsQuoteVisible ,
-         Converter={StaticResource BoolToVisibilityConverter}}"/>
-        <Image Grid.Row="2" Source="{Binding ImgLink}" Visibility="{Binding IsImgVisible ,
-         Converter={StaticResource BoolToVisibilityConverter}}"/>
-        
-        <StackPanel Grid.Row="3" Orientation="Horizontal">
-            <Button Width="150" Content="Change Theme" Command="{Binding ChangeThemeCommand}"/>
-            <Button Width="150" Content="Copy Text" Command="{Binding CopyTextImgCommand}"/>
-            <Button Width="150" Content="Visit This Api" Command="{Binding VisitApiWebCommand}"/>
+        <Button Grid.Row="1" Height="50" Content="Click Meee" FontSize="35"
+                Width="200"
+                FontFamily="{StaticResource JacquardaBastarda9}"            
+                Style="{StaticResource Button}"
+                Command="{Binding ApiCallCommand}" />
+
+
+        <Grid Row="2" Margin="35">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Source="{Binding ImgLink}"
+                   Visibility="{Binding IsImgVisible ,
+         Converter={StaticResource BoolToVisibilityConverter}}" />
+            <Label Grid.Row="1"
+                   Content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum d olor sit amet, consetetur sadipscing&#10;~ xyz&#10;Source: https://www.Loremipsum.de"
+                   Visibility="{Binding IsQuoteVisible ,
+         Converter={StaticResource BoolToVisibilityConverter}}"
+                   FontFamily="{StaticResource InconsolataCondensed}" />
+        </Grid>
+
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="35 0">
+            <StackPanel Orientation="Vertical" >
+                <Button Content="þew raNDom desøGú" Height="50" Width="300"
+                        Style="{StaticResource Button}"
+                        Command="{Binding ChangeThemeCommand}" />
+                <Button Content="Copy Text" Height="50" Width="300"
+                        Style="{StaticResource Button}"
+                        Command="{Binding CopyTextImgCommand}" />
+                <Button Content="Link TO Aùø" Height="50" Width="300"
+                        Style="{StaticResource Button}"
+                        Command="{Binding VisitApiWebCommand}" />
+            </StackPanel>
         </StackPanel>
-        
     </Grid>
 </Window>

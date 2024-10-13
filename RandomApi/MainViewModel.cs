@@ -76,6 +76,7 @@ public class MainViewModel : ViewModelBase
                 ApiWebAddress = "https://jikan.moe/";
                 break;
             case 3:   
+                //todo Null Exception Fixen
                 var googleBooks = await ApiCalls.ApiCalls.GoogleBooks(); 
                 var i = random.Next(0, googleBooks.items.Count);
                 Quote = $"Book Recommendation: {googleBooks.items[i].volumeInfo.title} from" +
