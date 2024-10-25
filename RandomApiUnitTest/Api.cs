@@ -110,5 +110,14 @@ public class Api
 
         //Assert
         Assert.That(response, Is.Not.Null);
+    }   
+    [Test]
+    public async Task RandomPoemCall_ReturnsWithRandomPoem()
+    {
+        //Act 
+        var response = await ApiCalls.RandomPoem();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
     }
 }
