@@ -9,63 +9,59 @@ namespace RandomApi.ApiCalls;
 
 public class ApiCalls
 {
-   private static Random random = new Random();
+   private static Random random = new();
    private static ObjectIds ObjectsIds = new();
 
-   public static async void Init()
+   public async void Init()
    {
+      //GetObject Ids For Further Api Call
       ObjectsIds = await GetIn<ObjectIds>("search?q=*&hasImages=true", "https://collectionapi.metmuseum.org/public/collection/v1/");
    }
    
-    public static async Task<string> CatFacts()
+    public async Task<string> CatFacts()
     {
        var result = await GetIn<CatFactsModel>("/facts/random", "https://cat-fact.herokuapp.com");
        return result.text;
     }  
-    public static async Task<AnimeQuote> AnimeQuote()
+    public async Task<AnimeQuote> AnimeQuote()
     {
        var result = await GetIn<AnimeQuote>("quotes/random", "https://animechan.io/api/v1/");
        return result;
     }  
-    public static async Task<results> NekoBest()
-    {
-       var result = await GetIn<results>("neko", "https://nekos.best/api/v2/");
-       return result;
-    }  
-    public static async Task<Jikan> AnimeRecommendation()
+    public async Task<Jikan> AnimeRecommendation()
     {
        var result = await GetIn<Jikan>("random/anime", "https://api.jikan.moe/v4/");
        return result;
     }
-    public static async Task<string> RandomDuk()
+    public async Task<string> RandomDuk()
     {
        var result = await GetIn<RandomDukModel>("random", "https://random-d.uk/api/");
        return result.url;
     }  
-    public static async Task<string> RandomFox()
+    public async Task<string> RandomFox()
     {
        var result = await GetIn<RandomFox>("floof", "https://randomfox.ca/");
        return result.image;
     } 
-    public static async Task<MetObject> RandomArtWork()
+    public async Task<MetObject> RandomArtWork()
     {
        var result = await GetIn<MetObject>($"objects/{ObjectsIds.objectIds[random.Next(0,ObjectsIds.objectIds.Count)]}",
           "https://collectionapi.metmuseum.org/public/collection/v1/");
        return result;
     }   
-    public static async Task<string> RandomNoiseColor()
+    public async Task<string> RandomNoiseColor()
     {
        var result = await GetIn<Noise>("noise.php?r=${r}&g=${g}&b=${b}&tiles=${tiles}&tileSize=${tileSize}&borderWidth=${borderWidth}&mode=${mode}&json", 
           "https://php-noise.com/");
        return result.uri;
     }    
-    public static async Task<VolumeResponse> GoogleBooks()
+    public async Task<VolumeResponse> GoogleBooks()
     {
        var result = await GetIn<VolumeResponse>("volumes?q=*&maxResults=40", 
           "https://www.googleapis.com/books/v1/");
        return result;
     }  
-    public static async Task<string> WaifuPics()
+    public async Task<string> WaifuPics()
     {
        string[] actions = {
           "waifu", "neko", "shinobu", "megumin",
@@ -81,7 +77,7 @@ public class ApiCalls
        return result.url;
     }
 
-    private static async Task<T> GetIn<T>(string requestUri , string baseUrl)
+    private async Task<T> GetIn<T>(string requestUri , string baseUrl)
     {
         using var client = new HttpClient();
         client.BaseAddress = new Uri(baseUrl);

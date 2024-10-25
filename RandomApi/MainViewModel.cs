@@ -13,16 +13,18 @@ public class MainViewModel : ViewModelBase
     public DelegateCommand ChangeThemeCommand { get; }
     public DelegateCommand VisitApiWebCommand { get; }
     public DelegateCommand ApiCallCommand { get; }
+    public ApiCalls.ApiCalls ApiCalls { get; set; }
 
     public MainViewModel()
     {
+        ApiCalls = new ApiCalls.ApiCalls();
         ApiCallCommand = new DelegateCommand(ApiCall);
         CopyTextImgCommand = new DelegateCommand(CopyTextImg);
         ChangeThemeCommand = new DelegateCommand(ChangeTheme);
         VisitApiWebCommand = new DelegateCommand(VisitApiWeb);
         IsImgVisible = true;
         IsQuoteVisible = true;
-        ApiCalls.ApiCalls.Init();
+        ApiCalls.Init();
     }
 
     private async void ApiCall()
@@ -46,19 +48,19 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
  
-        switch (3)
+        switch (1)
         {
             case 0:
-            Quote = await ApiCalls.ApiCalls.CatFacts();
+            Quote = await ApiCalls.CatFacts();
             ApiWebAddress = "https://github.com/alexwohlbruck/cat-facts";
             break;
             case 1:
-                var animeQuoteResult = await ApiCalls.ApiCalls.AnimeQuote();
+                var animeQuoteResult = await ApiCalls.AnimeQuote();
                 Quote = animeQuoteResult.data.content + "\n" + animeQuoteResult.data.anime.name + "~ " + animeQuoteResult.data.character.name;
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
                 break;
             case 2:
-                var animeRecommendationResult = await ApiCalls.ApiCalls.AnimeRecommendation();
+                var animeRecommendationResult = await ApiCalls.AnimeRecommendation();
                 Quote = $"Anime Recommendation: {animeRecommendationResult.data.title} it has {animeRecommendationResult.data.episodes} episodes ";
                 if (animeRecommendationResult.data.genres != null)
                 {
@@ -77,7 +79,7 @@ public class MainViewModel : ViewModelBase
                 break;
             case 3:   
                 //todo Null Exception Fixen
-                var googleBooks = await ApiCalls.ApiCalls.GoogleBooks(); 
+                var googleBooks = await ApiCalls.GoogleBooks(); 
                 var i = random.Next(0, googleBooks.items.Count);
                 Quote = $"Book Recommendation: {googleBooks.items[i].volumeInfo.title} from" +
                         $" {googleBooks.items[i].volumeInfo.authors.First()} and the description: {googleBooks.items[i].volumeInfo.description}";
@@ -96,30 +98,24 @@ public class MainViewModel : ViewModelBase
         switch (5)
         {
             case 0:
-                ImgLink = await ApiCalls.ApiCalls.RandomDuk();
+                ImgLink = await ApiCalls.RandomDuk();
                 ApiWebAddress = "https://random-d.uk/api";
                 break;
             case 1:
-                ImgLink = await ApiCalls.ApiCalls.RandomFox();
+                ImgLink = await ApiCalls.RandomFox();
                 ApiWebAddress = "https://randomfox.ca/";
                 break;
             case 2:
-                var results = await ApiCalls.ApiCalls.NekoBest();
-                Quote = $"Artist: {results.artist_name}";
-                ImgLink = results.url;
-                ApiWebAddress = "https://docs.nekos.best/";
-                break;
-            case 3:
-                ImgLink = await ApiCalls.ApiCalls.WaifuPics();
+                ImgLink = await ApiCalls.WaifuPics();
                 ApiWebAddress = "https://waifu.pics/";
                 break;   
-            case 4:
-                var result = await ApiCalls.ApiCalls.RandomArtWork();
+            case 3:
+                var result = await ApiCalls.RandomArtWork();
                 ImgLink = result.primaryimage;
                 ApiWebAddress = "https://metmuseum.github.io/";
                 break;   
-            case 5:
-                ImgLink = await ApiCalls.ApiCalls.RandomNoiseColor();
+            case 4:
+                ImgLink = await ApiCalls.RandomNoiseColor();
                 ApiWebAddress = "https://metmuseum.github.io/";
                 break;
             

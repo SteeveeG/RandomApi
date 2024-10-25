@@ -6,7 +6,6 @@ https://random-d.uk/api --Done
 https://randomfox.ca/floof/ --Done
 https://github.com/Animechan-API/animechan --Done
 https://jikan.moe/ --Done
-https://docs.nekos.best/ --Done
 https://github.com/Waifu-pics/waifu-api --Done
 https://github.com/cheatsnake/emojihub --Maybe Down try again later
 https://metmuseum.github.io/ --Done

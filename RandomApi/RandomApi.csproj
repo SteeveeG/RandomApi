@@ -21,5 +21,8 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="NekosBestApi" Version="1.0.0" />
+    </ItemGroup>
 
 </Project>
