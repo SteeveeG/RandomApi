@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RandomApi"
         xmlns:boolto="clr-namespace:RandomApi.Helpers"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:windowTools="clr-namespace:ChatApp.WindowTools"
+        mc:Ignorable="d"  Height="550" Width="800"
+        WindowStyle="None" MouseLeftButtonDown="Move"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        Title="MainWindow" MinHeight="550" MinWidth="800">
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
@@ -15,42 +19,47 @@
     </Window.Resources>
     <Grid Background="#FFE5E5">
         <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
             <RowDefinition Height="130" />
             <RowDefinition Height="60" />
+            <RowDefinition Height="Auto"/>
             <RowDefinition />
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
+        <windowTools:WindowTools Grid.Column="0" Grid.Row="0" Padding="0,10,0,0" />
 
-        <Label Grid.Row="0" HorizontalAlignment="Center"
+        <Label Grid.Row="1" HorizontalAlignment="Center"
                FontSize="80" VerticalAlignment="Center"
                FontFamily="{StaticResource Custom}">
             The Random ÿPi
         </Label>
-        <Button Grid.Row="1" Height="50" Content="Click Meee" FontSize="35"
+        <Button Grid.Row="2" Height="50" Content="Click Meee" FontSize="35"
                 Width="200"
                 FontFamily="{StaticResource JacquardaBastarda9}"            
                 Style="{StaticResource Button}"
                 Command="{Binding ApiCallCommand}" />
 
 
-        <Grid Row="2" Margin="35">
+        <Grid Row="3" Margin="35">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
+     
             <Image Grid.Row="0" Source="{Binding ImgLink}"
                    Visibility="{Binding IsImgVisible ,
          Converter={StaticResource BoolToVisibilityConverter}}" />
-            <Label Grid.Row="1"
-                   Content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum d olor sit amet, consetetur sadipscing&#10;~ xyz&#10;Source: https://www.Loremipsum.de"
+            <TextBlock Grid.Row="1"
+                   FontSize="30"
+                   Text="{Binding Quote}"
                    Visibility="{Binding IsQuoteVisible ,
          Converter={StaticResource BoolToVisibilityConverter}}"
                    FontFamily="{StaticResource InconsolataCondensed}" />
         </Grid>
 
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="35 0">
+        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="35 0">
             <StackPanel Orientation="Vertical" >
                 <Button Content="þew raNDom desøGú" Height="50" Width="300"
                         Style="{StaticResource Button}"

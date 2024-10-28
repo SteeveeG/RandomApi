@@ -56,7 +56,7 @@ public class MainViewModel : ViewModelBase
             break;
             case 1:
                 var animeQuoteResult = await ApiCalls.AnimeQuote();
-                Quote = animeQuoteResult.data.content + "\n" + animeQuoteResult.data.anime.name + "~ " + animeQuoteResult.data.character.name;
+                Quote = animeQuoteResult.data.content + "\n" + animeQuoteResult.data.anime.name + " ~ " + animeQuoteResult.data.character.name;
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
                 break;
             case 2:
