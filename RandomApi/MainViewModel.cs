@@ -47,8 +47,8 @@ public class MainViewModel : ViewModelBase
     private async void ApiCallQuotes()
     {
         var random = new Random();
- 
-        switch (1)
+        IsImgVisible = false;
+         switch (random.Next() % 4)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -73,6 +73,7 @@ public class MainViewModel : ViewModelBase
                 }
                 if (animeRecommendationResult.data.images != null)
                 {
+                    IsImgVisible = true;
                     ImgLink = animeRecommendationResult.data.images.jpg.large_image_url;
                 }
                 ApiWebAddress = "https://jikan.moe/";
@@ -85,17 +86,20 @@ public class MainViewModel : ViewModelBase
                         $" {googleBooks.items[i].volumeInfo.authors.First()} and the description: {googleBooks.items[i].volumeInfo.description}";
                 if (googleBooks.items[i].volumeInfo.imageLinks != null)
                 {
+                    IsImgVisible = true;
                     ImgLink = googleBooks.items[i].volumeInfo.imageLinks.thumbnail;
                 }
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
                 break;
             
         }
+        IsQuoteVisible = true;
     }
     private async void ApiCallImg()
     {
         var random = new Random();
-        switch (5)
+        IsQuoteVisible = false;
+        switch (random.Next() % 4)
         {
             case 0:
                 ImgLink = await ApiCalls.RandomDuk();
@@ -120,6 +124,7 @@ public class MainViewModel : ViewModelBase
                 break;
             
         }
+        IsImgVisible = true;
     }
     
     

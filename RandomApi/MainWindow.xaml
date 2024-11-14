@@ -17,7 +17,8 @@
     <Window.Resources>
         <ResourceDictionary Source="Style.xaml" />
     </Window.Resources>
-    <Grid Background="#FFE5E5">
+    <Grid Name="Background"
+          Style="{StaticResource Background1}">
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
             <RowDefinition Height="130" />
@@ -27,17 +28,20 @@
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
-        <windowTools:WindowTools Grid.Column="0" Grid.Row="0" Padding="0,10,0,0" />
+        <windowTools:WindowTools Grid.Column="0"
+                                 Grid.Row="0" Padding="0,10,0,0" />
 
-        <Label Grid.Row="1" HorizontalAlignment="Center"
-               FontSize="80" VerticalAlignment="Center"
-               FontFamily="{StaticResource Custom}">
+        <Label Grid.Row="1"
+               Name="Header"
+               Style="{StaticResource Label1}"
+               HorizontalAlignment="Center"
+               FontSize="80" VerticalAlignment="Center">
             The Random ÿPi
         </Label>
         <Button Grid.Row="2" Height="50" Content="Click Meee" FontSize="35"
-                Width="200"
+                Width="200" Name="btn1"
                 FontFamily="{StaticResource JacquardaBastarda9}"            
-                Style="{StaticResource Button}"
+                Style="{StaticResource Button1}"
                 Command="{Binding ApiCallCommand}" />
 
 
@@ -47,11 +51,14 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
      
-            <Image Grid.Row="0" Source="{Binding ImgLink}"
+            <Image Grid.Row="0" Source="{Binding ImgLink}" MaxHeight="400"
+
                    Visibility="{Binding IsImgVisible ,
          Converter={StaticResource BoolToVisibilityConverter}}" />
             <TextBlock Grid.Row="1"
-                   FontSize="30"
+                       Name="Quote"
+                   Style="{StaticResource TextBlock1}"
+                   FontSize="30"  TextWrapping="Wrap"
                    Text="{Binding Quote}"
                    Visibility="{Binding IsQuoteVisible ,
          Converter={StaticResource BoolToVisibilityConverter}}"
@@ -62,13 +69,16 @@
         <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="35 0">
             <StackPanel Orientation="Vertical" >
                 <Button Content="þew raNDom desøGú" Height="50" Width="300"
-                        Style="{StaticResource Button}"
+                        Click="ChangeStyle" Name="btn2"
+                        Style="{StaticResource Button1}"
                         Command="{Binding ChangeThemeCommand}" />
                 <Button Content="Copy Text" Height="50" Width="300"
-                        Style="{StaticResource Button}"
+                        Name="btn3"
+                        Style="{StaticResource Button1}"
                         Command="{Binding CopyTextImgCommand}" />
                 <Button Content="Link TO Aùø" Height="50" Width="300"
-                        Style="{StaticResource Button}"
+                        Name="btn4"
+                        Style="{StaticResource Button1}"
                         Command="{Binding VisitApiWebCommand}" />
             </StackPanel>
         </StackPanel>
