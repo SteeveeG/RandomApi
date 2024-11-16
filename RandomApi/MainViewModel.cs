@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 5)
+         switch (/*random.Next() % 4*/ 6)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -227,6 +227,12 @@ public class MainViewModel : ViewModelBase
                     $"\noriginal name : {holiday.localName}" +
                     $"\nthis is on {holiday.date.Value:dd/M/yyyy} and is celebrated in the country: {countries[holiday.countryCode]}";
                 break;
+            case 6:
+                var result = await ApiCalls.GetChuckNorrisJoke();
+                Quote = result.value;
+                ApiWebAddress = result.url;
+                break;
+
             
         }
         IsQuoteVisible = true;

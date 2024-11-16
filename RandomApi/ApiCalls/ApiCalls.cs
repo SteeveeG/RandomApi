@@ -117,6 +117,12 @@ public class ApiCalls
         return result;
     }
 
+    public async Task<UrlValue> GetChuckNorrisJoke()
+    {
+        var result = await GetIn<UrlValue>("jokes/random", "https://api.chucknorris.io/ ");
+        return result;
+    }
+
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {

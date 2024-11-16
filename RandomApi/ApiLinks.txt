@@ -13,11 +13,8 @@ https://php-noise.com/ --Done
 https://developers.google.com/books?hl=de --Done
 https://github.com/thundercomb/poetrydb#readme --Done
 https://date.nager.at/ --Done
-https://www.gov.uk/bank-holidays.json
-https://coinlib.io/apidocs
-https://developers.coinranking.com/api/documentation
-https://ctext.org/tools/api
-https://api.chucknorris.io/ http://www.icndb.com/api/
+https://api.chucknorris.io/ --Done
+http://www.icndb.com/api/
 https://github.com/sameerkumar18/corporate-bs-generator-api
 https://github.com/primeTanM/Excuser
 https://imgflip.com/api
