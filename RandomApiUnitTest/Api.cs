@@ -120,4 +120,60 @@ public class Api
         //Assert
         Assert.That(response, Is.Not.Null);
     }
+
+    [Test]
+    public async Task NextHolidayCall_ReturnsWithUpcommingHoliday()
+    {
+        //Act
+        var response = await ApiCalls.GetHolidays();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+    }
+
+    [Test]
+    public async Task RandomChuckNorrisCall_ReturnsWithRandomChuckNorrisJoke()
+    {
+        //Act
+        var response = await ApiCalls.GetChuckNorrisJoke();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.url, Is.Not.Null);
+        Assert.That(response.value, Is.Not.Null);
+    }
+    [Test]
+    public async Task RandomExcuseCall_ReturnsWithRandomExcuse()
+    {
+        //Act
+        var response = await ApiCalls.GetExcuse();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.excuse, Is.Not.Null);
+
+    }
+    [Test]
+    public async Task RandomUselessFactCall_ReturnsWithRandomUselessFact()
+    {
+        //Act
+        var response = await ApiCalls.GetUselessFact();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.text, Is.Not.Null);
+
+    }
+
+    [Test]
+    public async Task RandomUselessTechSentence_ReturnsWithRandomUselessTechSentence()
+    {
+        //Act
+        var response = await ApiCalls.GetUselessTechSentence();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.message, Is.Not.Null);
+
+    }
 }
