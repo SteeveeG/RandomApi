@@ -30,7 +30,7 @@ public class MainViewModel : ViewModelBase
     private async void ApiCall()
     {
         var random = new Random();
-        switch (random.Next() % 2)
+        switch (1)
         {
             case 0:
                 ApiCallQuotes();
@@ -48,7 +48,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (random.Next() % 4)
+         switch (/*random.Next() % 4*/ 3)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -56,25 +56,30 @@ public class MainViewModel : ViewModelBase
             break;
             case 1:
                 var animeQuoteResult = await ApiCalls.AnimeQuote();
-                Quote = animeQuoteResult.data.content + "\n" + animeQuoteResult.data.anime.name + " ~ " + animeQuoteResult.data.character.name;
+                Quote = animeQuoteResult.data.content + "\n" + animeQuoteResult.data.anime.name + " ~" + animeQuoteResult.data.character.name;
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
                 break;
             case 2:
                 var animeRecommendationResult = await ApiCalls.AnimeRecommendation();
-                Quote = $"Anime Recommendation: {animeRecommendationResult.data.title} it has {animeRecommendationResult.data.episodes} episodes ";
+                var episodes = animeRecommendationResult.data.episodes < 1? "episodes": "episode";
+                Quote = $"Anime Recommendation: {animeRecommendationResult.data.title} it has {animeRecommendationResult.data.episodes} {episodes} ";
                 if (animeRecommendationResult.data.genres != null)
                 {
                     var genreString = animeRecommendationResult.data.genres.Aggregate("", (current, genre) => current + (genre.name + ", "));
                     if (genreString.Length != 0)
                     {
                         genreString = genreString.Remove(genreString.Length - 2);
-                        Quote += $"and the genres are {genreString}";
+                        Quote += $"and the genres are: {genreString} ";
                     }
                 }
                 if (animeRecommendationResult.data.images != null)
                 {
                     IsImgVisible = true;
                     ImgLink = animeRecommendationResult.data.images.jpg.large_image_url;
+                }
+                if (animeRecommendationResult.data.synopsis != null)
+                {
+                    Quote += $"The Story is about: {animeRecommendationResult.data.synopsis}";
                 }
                 ApiWebAddress = "https://jikan.moe/";
                 break;
@@ -99,10 +104,11 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsQuoteVisible = false;
-        switch (random.Next() % 4)
+        isImgVisible = false;
+        switch (/*random.Next() % 4*/4)
         {
             case 0:
-                ImgLink = await ApiCalls.RandomDuk();
+                ImgLink  = await ApiCalls.RandomDuk();
                 ApiWebAddress = "https://random-d.uk/api";
                 break;
             case 1:
@@ -116,11 +122,22 @@ public class MainViewModel : ViewModelBase
             case 3:
                 var result = await ApiCalls.RandomArtWork();
                 ImgLink = result.primaryimage;
+                if (!string.IsNullOrEmpty(result.title) && !string.IsNullOrWhiteSpace(result.title))
+                {
+                    Quote = $"The Artwork Called : {result.title} ";
+                }
+                if (!string.IsNullOrEmpty(result.artistdisplayname) && !string.IsNullOrWhiteSpace(result.artistdisplayname))
+                {
+                    Quote += $"\nfrom the Artist : {result.artistdisplayname}";
+                }
+                IsQuoteVisible = true;
                 ApiWebAddress = "https://metmuseum.github.io/";
                 break;   
             case 4:
                 ImgLink = await ApiCalls.RandomNoiseColor();
                 ApiWebAddress = "https://metmuseum.github.io/";
+                Quote = "A Random Noise Color";
+                IsQuoteVisible = true;
                 break;
             
         }

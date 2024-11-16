@@ -40,7 +40,7 @@ public class ApiCalls
 
     public async Task<string> RandomDuk()
     {
-        var result = await GetIn<RandomDukModel>("random", "https://random-d.uk/api/");
+        var result = await GetIn<Url>("random", "https://random-d.uk/api/");
         return result.url;
     }
 

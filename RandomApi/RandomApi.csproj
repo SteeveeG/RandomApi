@@ -24,5 +24,8 @@
     <ItemGroup>
       <PackageReference Include="NekosBestApi" Version="1.0.0" />
     </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="Models\RandomDukModel.cs" />
+    </ItemGroup>
 
 </Project>
