@@ -141,6 +141,12 @@ public class ApiCalls
         return result;
     }
 
+    public async Task<Message> GetUselessTechSentence()
+    {
+        var result = await GetIn<Message>("api/json", "https://techy-api.vercel.app/");
+        return result;
+    }
+
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {
         using var client = new HttpClient();

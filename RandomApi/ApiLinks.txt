@@ -17,7 +17,7 @@ https://api.chucknorris.io/ --Done
 https://github.com/sameerkumar18/corporate-bs-generator-api --Done
 https://github.com/primeTanM/Excuser --Done
 https://uselessfacts.jsph.pl/ --Done
-https://techy-api.vercel.app/
+https://techy-api.vercel.app/ --Done
 https://github.com/beanboi7/yomomma-apiv2?tab=readme-ov-file
 https://baconmockup.com/
 https://coffee.alexflipnote.dev
