@@ -4,6 +4,7 @@ using System.Net.Http.Json;
 using RandomApi.Models;
 using RandomApi.Models.AnimeQuote;
 using RandomApi.Models.MetObjects;
+using System.Collections.Generic;
 
 namespace RandomApi.ApiCalls;
 
@@ -13,10 +14,12 @@ public class ApiCalls
     private static ObjectIds ObjectsIds = new();
     private static Authors Authors = new();
 
+
     public async void Init()
     {
         //GetObject Ids For Further Api Call
-        ObjectsIds = await GetIn<ObjectIds>("search?q=*&hasImages=true", "https://collectionapi.metmuseum.org/public/collection/v1/");
+        ObjectsIds = await GetIn<ObjectIds>("search?q=*&hasImages=true",
+            "https://collectionapi.metmuseum.org/public/collection/v1/");
         Authors = await GetIn<Authors>("author", "https://poetrydb.org/");
     }
 
@@ -56,7 +59,8 @@ public class ApiCalls
             $"objects/{ObjectsIds.objectIds[random.Next(0, ObjectsIds.objectIds.Count)]}",
             "https://collectionapi.metmuseum.org/public/collection/v1/");
         return result;
-    }   
+    }
+
     public async Task<List<lines>> RandomPoem()
     {
         var index = random.Next(0, Authors.authors.Count);
@@ -69,7 +73,7 @@ public class ApiCalls
             result = result[..50];
         }
 
-        result.Add(new lines{Lines = new List<string>()});
+        result.Add(new lines { Lines = new List<string>() });
         result[^1].Lines.Add(Authors.authors[index]);
         return result;
     }
@@ -105,6 +109,14 @@ public class ApiCalls
         var result = await GetIn<Url>($"sfw/{actions[random.Next(0, actions.Length)]}", "https://api.waifu.pics/");
         return result.url;
     }
+
+
+    public async Task<List<Holiday>> GetHolidays()
+    {
+        var result = await GetIn<List<Holiday>>("NextPublicHolidaysWorldwide", "https://date.nager.at/api/v3/");
+        return result;
+    }
+
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {

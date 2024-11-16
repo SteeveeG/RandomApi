@@ -12,10 +12,7 @@ https://metmuseum.github.io/ --Done
 https://php-noise.com/ --Done
 https://developers.google.com/books?hl=de --Done
 https://github.com/thundercomb/poetrydb#readme --Done
-https://api-thirukkural.web.app/
-https://wizard-world-api.herokuapp.com/swagger/index.html (need names of Harry potter)
-https://markerapi.com/
-https://date.nager.at/
+https://date.nager.at/ --Done
 https://www.gov.uk/bank-holidays.json
 https://coinlib.io/apidocs
 https://developers.coinranking.com/api/documentation
