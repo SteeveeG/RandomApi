@@ -14,8 +14,8 @@ https://developers.google.com/books?hl=de --Done
 https://github.com/thundercomb/poetrydb#readme --Done
 https://date.nager.at/ --Done
 https://api.chucknorris.io/ --Done
-https://github.com/sameerkumar18/corporate-bs-generator-api
-https://github.com/primeTanM/Excuser
+https://github.com/sameerkumar18/corporate-bs-generator-api --Done
+https://github.com/primeTanM/Excuser --Done
 https://imgflip.com/api
 https://github.com/theIYD/NaMoMemes
 https://uselessfacts.jsph.pl/

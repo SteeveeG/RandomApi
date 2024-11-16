@@ -73,7 +73,7 @@ public class ApiCalls
             result = result[..50];
         }
 
-        result.Add(new lines { Lines = new List<string>() });
+        result.Add(new lines { Lines = [] });
         result[^1].Lines.Add(Authors.authors[index]);
         return result;
     }
@@ -96,7 +96,7 @@ public class ApiCalls
     public async Task<string> WaifuPics()
     {
         string[] actions =
-        {
+        [
             "waifu", "neko", "shinobu", "megumin",
             "bully", "cuddle", "cry", "hug",
             "awoo", "kiss", "lick", "pat",
@@ -105,7 +105,7 @@ public class ApiCalls
             "nom", "bite", "glomp", "slap",
             "kill", "kick", "happy", "wink",
             "poke", "dance", "cringe"
-        };
+        ];
         var result = await GetIn<Url>($"sfw/{actions[random.Next(0, actions.Length)]}", "https://api.waifu.pics/");
         return result.url;
     }
@@ -129,6 +129,11 @@ public class ApiCalls
         return result;
     }
 
+    public async Task<Excuser> GetExcuse()
+    {
+        var result = await GetIn<List<Excuser>>("excuse/1", "https://excuser-three.vercel.app/v1/");
+        return result[0];
+    }
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {

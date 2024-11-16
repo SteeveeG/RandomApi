@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 7)
+         switch (/*random.Next() % 4*/ 8)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -236,6 +236,10 @@ public class MainViewModel : ViewModelBase
                 var corporateBullshit = await ApiCalls.GetCorporateBullshitPhrase();
                 Quote = $"Here a Dumb sentence for your next Bullshit Meeting:\n{corporateBullshit.phrase}";
                 ApiWebAddress = "https://github.com/sameerkumar18/corporate-bs-generator-api";
+                break;
+            case 8:
+                var excuser = await ApiCalls.GetExcuse();
+                Quote = $"here an excuse: {excuser.excuse}";
                 break;
         }
         IsQuoteVisible = true;
