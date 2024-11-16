@@ -135,6 +135,12 @@ public class ApiCalls
         return result[0];
     }
 
+    public async Task<Text> GetUselessFact()
+    {
+        var result = await GetIn<Text>("api/v2/facts/random", "https://uselessfacts.jsph.pl/");
+        return result;
+    }
+
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {
         using var client = new HttpClient();

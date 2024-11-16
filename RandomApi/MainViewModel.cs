@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 8)
+         switch (/*random.Next() % 4*/ 9)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -240,6 +240,11 @@ public class MainViewModel : ViewModelBase
             case 8:
                 var excuser = await ApiCalls.GetExcuse();
                 Quote = $"here an excuse: {excuser.excuse}";
+                break;
+            case 9:
+                var uselessFact = await ApiCalls.GetUselessFact();
+                Quote = uselessFact.text;
+                ApiWebAddress = "https://uselessfacts.jsph.pl/";
                 break;
         }
         IsQuoteVisible = true;

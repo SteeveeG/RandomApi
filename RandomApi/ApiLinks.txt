@@ -16,9 +16,7 @@ https://date.nager.at/ --Done
 https://api.chucknorris.io/ --Done
 https://github.com/sameerkumar18/corporate-bs-generator-api --Done
 https://github.com/primeTanM/Excuser --Done
-https://imgflip.com/api
-https://github.com/theIYD/NaMoMemes
-https://uselessfacts.jsph.pl/
+https://uselessfacts.jsph.pl/ --Done
 https://techy-api.vercel.app/
 https://github.com/beanboi7/yomomma-apiv2?tab=readme-ov-file
 https://baconmockup.com/
