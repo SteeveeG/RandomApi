@@ -9,8 +9,6 @@ public class MainViewModel : ViewModelBase
     private string imgLink;
     private bool isQuoteVisible;
     private bool isImgVisible;
-    public DelegateCommand CopyTextImgCommand { get; }
-    public DelegateCommand ChangeThemeCommand { get; }
     public DelegateCommand VisitApiWebCommand { get; }
     public DelegateCommand ApiCallCommand { get; }
     public ApiCalls.ApiCalls ApiCalls { get; set; }
@@ -19,8 +17,6 @@ public class MainViewModel : ViewModelBase
     {
         ApiCalls = new ApiCalls.ApiCalls();
         ApiCallCommand = new DelegateCommand(ApiCall);
-        CopyTextImgCommand = new DelegateCommand(CopyTextImg);
-        ChangeThemeCommand = new DelegateCommand(ChangeTheme);
         VisitApiWebCommand = new DelegateCommand(VisitApiWeb);
         IsImgVisible = true;
         IsQuoteVisible = true;
@@ -156,14 +152,6 @@ public class MainViewModel : ViewModelBase
     
    
     private void VisitApiWeb()
-    {
-    }
-
-    private void ChangeTheme()
-    {
-    }
-
-    private void CopyTextImg()
     {
     }
 

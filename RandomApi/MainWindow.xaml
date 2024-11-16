@@ -70,14 +70,9 @@
             <StackPanel Orientation="Vertical" >
                 <Button Content="þew raNDom desøGú" Height="50" Width="300"
                         Click="ChangeStyle" Name="btn2"
-                        Style="{StaticResource Button1}"
-                        Command="{Binding ChangeThemeCommand}" />
-                <Button Content="Copy Text" Height="50" Width="300"
-                        Name="btn3"
-                        Style="{StaticResource Button1}"
-                        Command="{Binding CopyTextImgCommand}" />
+                        Style="{StaticResource Button1}"/>
                 <Button Content="Link TO Aùø" Height="50" Width="300"
-                        Name="btn4"
+                        Name="btn3"
                         Style="{StaticResource Button1}"
                         Command="{Binding VisitApiWebCommand}" />
             </StackPanel>
