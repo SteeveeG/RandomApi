@@ -123,6 +123,12 @@ public class ApiCalls
         return result;
     }
 
+    public async Task<CorporateBullshit> GetCorporateBullshitPhrase()
+    {
+        var result = await GetIn<CorporateBullshit>("", "https://corporatebs-generator.sameerkumar.website/");
+        return result;
+    }
+
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {

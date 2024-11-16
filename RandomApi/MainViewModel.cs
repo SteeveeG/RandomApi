@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 6)
+         switch (/*random.Next() % 4*/ 7)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -228,12 +228,15 @@ public class MainViewModel : ViewModelBase
                     $"\nthis is on {holiday.date.Value:dd/M/yyyy} and is celebrated in the country: {countries[holiday.countryCode]}";
                 break;
             case 6:
-                var result = await ApiCalls.GetChuckNorrisJoke();
-                Quote = result.value;
-                ApiWebAddress = result.url;
+                var chuckNorrisJoke = await ApiCalls.GetChuckNorrisJoke();
+                Quote = chuckNorrisJoke.value;
+                ApiWebAddress = chuckNorrisJoke.url;
                 break;
-
-            
+            case 7:
+                var corporateBullshit = await ApiCalls.GetCorporateBullshitPhrase();
+                Quote = $"Here a Dumb sentence for your next Bullshit Meeting:\n{corporateBullshit.phrase}";
+                ApiWebAddress = "https://github.com/sameerkumar18/corporate-bs-generator-api";
+                break;
         }
         IsQuoteVisible = true;
     }
