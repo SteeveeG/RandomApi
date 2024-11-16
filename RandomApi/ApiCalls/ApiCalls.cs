@@ -59,9 +59,18 @@ public class ApiCalls
     }   
     public async Task<List<lines>> RandomPoem()
     {
+        var index = random.Next(0, Authors.authors.Count);
         var result = await GetIn<List<lines>>(
-            $"author/{Authors.authors[random.Next(0,Authors.authors.Count)]}/lines",
+            $"author/{Authors.authors[index]}/lines",
             "https://poetrydb.org/");
+
+        if (result.Count > 50)
+        {
+            result = result[..50];
+        }
+
+        result.Add(new lines{Lines = new List<string>()});
+        result[^1].Lines.Add(Authors.authors[index]);
         return result;
     }
 

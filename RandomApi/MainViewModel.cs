@@ -30,7 +30,7 @@ public class MainViewModel : ViewModelBase
     private async void ApiCall()
     {
         var random = new Random();
-        switch (1)
+        switch (0)
         {
             case 0:
                 ApiCallQuotes();
@@ -48,7 +48,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 3)
+         switch (/*random.Next() % 4*/ 4)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -96,6 +96,15 @@ public class MainViewModel : ViewModelBase
                 }
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
                 break;
+            case 4:
+                var listPoem = await ApiCalls.RandomPoem();
+                var author = listPoem[^1].Lines[0];
+                listPoem.RemoveAt(listPoem.IndexOf(listPoem[^1]));
+                var poem = listPoem[random.Next(0, listPoem.Count)];
+                var finishedPoem = poem.Lines.Aggregate(string.Empty, (current, line) => current + (line + "\n"));
+                Quote = finishedPoem.Remove(finishedPoem.Length - 1);
+                ApiWebAddress = "https://github.com/thundercomb/poetrydb";
+                break;
             
         }
         IsQuoteVisible = true;
@@ -105,7 +114,7 @@ public class MainViewModel : ViewModelBase
         var random = new Random();
         IsQuoteVisible = false;
         isImgVisible = false;
-        switch (/*random.Next() % 4*/4)
+        switch (random.Next() % 4)
         {
             case 0:
                 ImgLink  = await ApiCalls.RandomDuk();
