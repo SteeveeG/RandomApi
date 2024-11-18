@@ -10,6 +10,7 @@ public class MainViewModel : ViewModelBase
     private string imgLink;
     private bool isQuoteVisible;
     private bool isImgVisible;
+ 
     public DelegateCommand VisitApiWebCommand { get; }
     public DelegateCommand ApiCallCommand { get; }
     private ApiCalls.ApiCalls ApiCalls { get; set; }

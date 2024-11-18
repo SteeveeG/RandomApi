@@ -19,6 +19,7 @@ public partial class WindowTools : UserControl
         {
             MaximizeNormalLabel.Content = "\u2750";
             MaximizeNormalLabel.FontSize = 20;
+            CoseLabel.Content = "X";
         }
     }
 
@@ -44,12 +45,14 @@ public partial class WindowTools : UserControl
             MaximizeNormalLabel.Content = "\u25a1";
             parentWindow.WindowState = WindowState.Normal;
             MaximizeNormalLabel.FontSize = 25;
+            CoseLabel.Content = "x";
         }
         else
         {
             MaximizeNormalLabel.Content = "\u2750";
             parentWindow.WindowState = WindowState.Maximized;
             MaximizeNormalLabel.FontSize = 20;
+            CoseLabel.Content = "X";
         }
     }
 }

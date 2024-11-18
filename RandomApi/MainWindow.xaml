@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RandomApi"
         xmlns:boolto="clr-namespace:RandomApi.Helpers"
         xmlns:windowTools="clr-namespace:ChatApp.WindowTools"
-        mc:Ignorable="d"  Height="550" Width="800"
+        mc:Ignorable="d" Height="550" Width="800"
         WindowStyle="None" MouseLeftButtonDown="Move"
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip"
@@ -17,65 +17,60 @@
     <Window.Resources>
         <ResourceDictionary Source="Style.xaml" />
     </Window.Resources>
-    <Grid Name="Background"
-          Style="{StaticResource Background1}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
-            <RowDefinition Height="130" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
-            <RowDefinition Height="Auto" />
-
-        </Grid.RowDefinitions>
-        <windowTools:WindowTools Grid.Column="0"
-                                 Grid.Row="0" Padding="0,10,0,0" />
-
-        <Label Grid.Row="1"
-               Name="Header"
-               Style="{StaticResource Label1}"
-               HorizontalAlignment="Center"
-               FontSize="80" VerticalAlignment="Center">
+    <StackPanel Name="Background"  Style="{StaticResource Background1}">
+        <windowTools:WindowTools Grid.Column="2" Padding="0,10,0,0" VerticalAlignment="Top" />
+        <Label 
+            Name="Header"
+            Style="{StaticResource Label1}"
+            HorizontalAlignment="Center"
+            FontSize="80" VerticalAlignment="Center">
             The Random ÿPi
         </Label>
-        <Button Grid.Row="2" Height="50" Content="Click Meee" FontSize="35"
+        <Button Height="50" Content="Click Meee" FontSize="35"
                 Width="200" Name="btn1"
-                FontFamily="{StaticResource JacquardaBastarda9}"            
+                FontFamily="{StaticResource JacquardaBastarda9}"
                 Style="{StaticResource Button1}"
                 Command="{Binding ApiCallCommand}" />
-
-
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="35 0">
+                <StackPanel Orientation="Horizontal" >
+                    <Button Content="þew raNDom desøGú" Height="50" Width="300"
+                        Click="ChangeStyle" Name="btn2"
+                        Style="{StaticResource Button1}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Button  Content="Link TO Aùø" Height="50" Width="300"
+                Name="btn3" 
+                Style="{StaticResource Button1}"
+                Command="{Binding VisitApiWebCommand}" />
         <Grid Row="3" Margin="35">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-     
             <Image Grid.Row="0" Source="{Binding ImgLink}" MaxHeight="400"
 
-                   Visibility="{Binding IsImgVisible ,
-         Converter={StaticResource BoolToVisibilityConverter}}" />
+                               Visibility="{Binding IsImgVisible ,
+                 Converter={StaticResource BoolToVisibilityConverter}}" />
             <TextBlock Grid.Row="1"
                        Name="Quote"
-                   Style="{StaticResource TextBlock1}"
-                   FontSize="30"  TextWrapping="Wrap"
-                   Text="{Binding Quote}"
-                   Visibility="{Binding IsQuoteVisible ,
-         Converter={StaticResource BoolToVisibilityConverter}}"
-                   FontFamily="{StaticResource InconsolataCondensed}" />
+                       Style="{StaticResource TextBlock1}"
+                       FontSize="30" TextWrapping="Wrap"
+                       Text="{Binding Quote}"
+                       Visibility="{Binding IsQuoteVisible ,
+                 Converter={StaticResource BoolToVisibilityConverter}}"
+                       FontFamily="{StaticResource InconsolataCondensed}" />
         </Grid>
+    </StackPanel>
 
 
-        <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="35 0">
-            <StackPanel Orientation="Vertical" >
-                <Button Content="þew raNDom desøGú" Height="50" Width="300"
-                        Click="ChangeStyle" Name="btn2"
-                        Style="{StaticResource Button1}"/>
-                <Button Content="Link TO Aùø" Height="50" Width="300"
-                        Name="btn3"
-                        Style="{StaticResource Button1}"
-                        Command="{Binding VisitApiWebCommand}" />
-            </StackPanel>
-        </StackPanel>
-    </Grid>
 </Window>

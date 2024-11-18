@@ -331,34 +331,34 @@
     </Style>
 
 
-    <Style x:Key="Background1" TargetType="Grid">
+    <Style x:Key="Background1" TargetType="StackPanel">
         <Setter Property="Background" Value=" #FFE5E5"/>
     </Style>
-  <Style x:Key="Background2" TargetType="Grid">
+  <Style x:Key="Background2" TargetType="StackPanel">
         <Setter Property="Background" Value=" #DCE0D9"/>
     </Style>
-  <Style x:Key="Background3" TargetType="Grid">
+  <Style x:Key="Background3" TargetType="StackPanel">
         <Setter Property="Background" Value=" #F4D35E"/>
     </Style>
-  <Style x:Key="Background4" TargetType="Grid">
+  <Style x:Key="Background4" TargetType="StackPanel">
         <Setter Property="Background" Value=" #F18F01"/>
     </Style>
-  <Style x:Key="Background5" TargetType="Grid">
+  <Style x:Key="Background5" TargetType="StackPanel">
         <Setter Property="Background" Value=" #2E282A"/>
     </Style>
-  <Style x:Key="Background6" TargetType="Grid">
+  <Style x:Key="Background6" TargetType="StackPanel">
         <Setter Property="Background" Value=" #588157"/>
     </Style>
-  <Style x:Key="Background7" TargetType="Grid">
+  <Style x:Key="Background7" TargetType="StackPanel">
         <Setter Property="Background" Value=" #EFCFE3"/>
     </Style>
-  <Style x:Key="Background8" TargetType="Grid">
+  <Style x:Key="Background8" TargetType="StackPanel">
         <Setter Property="Background" Value=" #FFFFFF"/>
     </Style>
-  <Style x:Key="Background9" TargetType="Grid">
+  <Style x:Key="Background9" TargetType="StackPanel">
         <Setter Property="Background" Value=" #15151f"/>
     </Style>
-  <Style x:Key="Background10" TargetType="Grid">
+  <Style x:Key="Background10" TargetType="StackPanel">
         <Setter Property="Background" Value=" #00272B"/>
     </Style>
 
