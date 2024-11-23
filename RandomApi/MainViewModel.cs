@@ -163,7 +163,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 10)
+         switch (/*random.Next() % 4*/ 11)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -252,6 +252,12 @@ public class MainViewModel : ViewModelBase
                 Quote = $"Here a useless Tech Sentence: {uselessTechSentence.message}";
                 ApiWebAddress = "https://uselessfacts.jsph.pl/";
                 break;
+            case 11:
+                var dog = await ApiCalls.GetDogFact();
+                Quote = dog.data[0].attributes.body;
+                ApiWebAddress = "https://dogapi.dog/";
+                break;
+
         }
         IsQuoteVisible = true;
     }
@@ -260,7 +266,7 @@ public class MainViewModel : ViewModelBase
         var random = new Random();
         IsQuoteVisible = false;
         isImgVisible = false;
-        switch (random.Next() % 4)
+        switch (/*random.Next() % 4*/5)
         {
             case 0:
                 ImgLink  = await ApiCalls.RandomDuk();
@@ -293,6 +299,10 @@ public class MainViewModel : ViewModelBase
                 ApiWebAddress = "https://metmuseum.github.io/";
                 Quote = "A Random Noise Color";
                 IsQuoteVisible = true;
+                break;
+            case 5:
+
+
                 break;
             
         }

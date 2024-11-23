@@ -26,32 +26,40 @@
             FontSize="80" VerticalAlignment="Center">
             The Random ÿPi
         </Label>
-        <Button Height="50" Content="Click Meee" FontSize="35"
-                Width="200" Name="btn1"
-                FontFamily="{StaticResource JacquardaBastarda9}"
-                Style="{StaticResource Button1}"
-                Command="{Binding ApiCallCommand}" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Height="50" Content="Click Meee" FontSize="35"
+                    Width="200" Name="btn1"
+                    FontFamily="{StaticResource JacquardaBastarda9}"
+                    Style="{StaticResource Button1}"
+                    Command="{Binding ApiCallCommand}" />
+            <Button Height="50" Content="..." FontSize="35"
+                     Width="50" Name="btn4"
+                    FontFamily="{StaticResource JacquardaBastarda9}"
+                    Style="{StaticResource Button1}"
+                    Command="{Binding ApiCallCommand}" />
+        </StackPanel>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="35 0">
                 <StackPanel Orientation="Horizontal" >
                     <Button Content="þew raNDom desøGú" Height="50" Width="300"
-                        Click="ChangeStyle" Name="btn2"
+                        Click="ChangeStyle" Name="btn2" Visibility="Hidden"
                         Style="{StaticResource Button1}"/>
                 </StackPanel>
             </StackPanel>
+            <Button Grid.Column="1"  Content="Link TO Aùø" Height="50" Width="300"
+                    Name="btn3" Visibility="Hidden"
+                    Style="{StaticResource Button1}"
+                    Command="{Binding VisitApiWebCommand}" />
         </Grid>
-        <Button  Content="Link TO Aùø" Height="50" Width="300"
-                Name="btn3" 
-                Style="{StaticResource Button1}"
-                Command="{Binding VisitApiWebCommand}" />
+
         <Grid Row="3" Margin="35">
             <Grid.RowDefinitions>
                 <RowDefinition />

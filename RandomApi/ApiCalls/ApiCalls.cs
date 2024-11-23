@@ -5,6 +5,7 @@ using RandomApi.Models;
 using RandomApi.Models.AnimeQuote;
 using RandomApi.Models.MetObjects;
 using System.Collections.Generic;
+using System.IO;
 
 namespace RandomApi.ApiCalls;
 
@@ -144,6 +145,12 @@ public class ApiCalls
     public async Task<Message> GetUselessTechSentence()
     {
         var result = await GetIn<Message>("api/json", "https://techy-api.vercel.app/");
+        return result;
+    }
+
+    public async Task<Dog> GetDogFact()
+    {
+        var result = await GetIn<Dog>("facts?limit=1", "https://dogapi.dog/api/v2/");
         return result;
     }
 
