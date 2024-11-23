@@ -20,7 +20,6 @@ https://uselessfacts.jsph.pl/ --Done
 https://techy-api.vercel.app/ --Done
 https://kinduff.github.io/dog-api/ --Done
 https://github.com/surhud004/Foodish#readme -- Done
-https://www.fruityvice.com/
 https://www.openbrewerydb.org/
 https://punkapi.com/
 https://github.com/evz/tacofancy-api

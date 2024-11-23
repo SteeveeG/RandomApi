@@ -302,6 +302,7 @@ public class MainViewModel : ViewModelBase
                 var foodPic = await ApiCalls.GetFoodPic();
                 ImgLink = foodPic.image;
                 Quote = "Yummy";
+                IsQuoteVisible = true;
                 break;
             
         }
