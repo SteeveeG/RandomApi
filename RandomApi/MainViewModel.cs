@@ -145,7 +145,7 @@ public class MainViewModel : ViewModelBase
     private async void ApiCall()
     {
         var random = new Random();
-        switch (0)
+        switch (1)
         {
             case 0:
                 ApiCallQuotes();
@@ -156,8 +156,6 @@ public class MainViewModel : ViewModelBase
         }
       
     }
-
-    
 
     private async void ApiCallQuotes()
     {
@@ -301,8 +299,9 @@ public class MainViewModel : ViewModelBase
                 IsQuoteVisible = true;
                 break;
             case 5:
-
-
+                var foodPic = await ApiCalls.GetFoodPic();
+                ImgLink = foodPic.image;
+                Quote = "Yummy";
                 break;
             
         }

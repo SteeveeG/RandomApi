@@ -153,6 +153,11 @@ public class ApiCalls
         var result = await GetIn<Dog>("facts?limit=1", "https://dogapi.dog/api/v2/");
         return result;
     }
+    public async Task<food> GetFoodPic()
+    {
+        var result = await GetIn<food>("api/", "https://foodish-api.com/");
+        return result;
+    }
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {
