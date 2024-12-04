@@ -145,7 +145,7 @@ public class MainViewModel : ViewModelBase
     private async void ApiCall()
     {
         var random = new Random();
-        switch (1)
+        switch (0)
         {
             case 0:
                 ApiCallQuotes();
@@ -161,7 +161,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 11)
+         switch (/*random.Next() % 4*/ 12)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -255,6 +255,18 @@ public class MainViewModel : ViewModelBase
                 Quote = dog.data[0].attributes.body;
                 ApiWebAddress = "https://dogapi.dog/";
                 break;
+            case 12:
+                var brewery = await ApiCalls.GetBreweries();
+                Quote = $"Here a Brewery: {brewery.name}, its location is in {brewery.address_1}" +
+                        $"in the country {brewery.country}";
+                if (brewery.country != null)
+                {
+                    Quote += $" with the Website {brewery.website_url}";
+
+                }
+                ApiWebAddress = "https://www.openbrewerydb.org/";
+                break;
+                
 
         }
         IsQuoteVisible = true;

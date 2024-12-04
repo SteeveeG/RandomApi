@@ -199,5 +199,13 @@ public class Api
         Assert.That(response.image, Is.Not.Null);
 
     }
-    
+    [Test]
+    public async Task GetBreweries_ReturnsRandomBrewery()
+    {
+        //Act
+        var response = await ApiCalls.GetBreweries();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+    }
 }

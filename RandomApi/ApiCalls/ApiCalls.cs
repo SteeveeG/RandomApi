@@ -162,8 +162,8 @@ public class ApiCalls
 
     public async Task<Brewery> GetBreweries()
     {
-        var result = await GetIn<Brewery>("api/", "https://foodish-api.com/");
-        return result;
+        var result = await GetIn<List<Brewery>>("random", "https://api.openbrewerydb.org/v1/breweries/");
+        return result[0];
     }
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
