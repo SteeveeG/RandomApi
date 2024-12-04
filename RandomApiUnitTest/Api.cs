@@ -176,4 +176,28 @@ public class Api
         Assert.That(response.message, Is.Not.Null);
 
     }
+    
+    [Test]
+    public async Task RandomDogFact_ReturnsRandomDogFact()
+    {
+        //Act
+        var response = await ApiCalls.GetDogFact();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.data, Is.Not.Null);
+
+    }   
+    [Test]
+    public async Task GetFoodPic_ReturnsRandomFoodPic()
+    {
+        //Act
+        var response = await ApiCalls.GetFoodPic();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.image, Is.Not.Null);
+
+    }
+    
 }
