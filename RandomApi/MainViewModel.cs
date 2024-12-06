@@ -1,6 +1,7 @@
 using System.Globalization;
 using RandomApi.Helpers;
- 
+using RandomApi.Models;
+
 namespace RandomApi;
 
 public class MainViewModel : ViewModelBase
@@ -161,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 12)
+         switch (/*random.Next() % 4*/ 13)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -266,9 +267,31 @@ public class MainViewModel : ViewModelBase
                 }
                 ApiWebAddress = "https://www.openbrewerydb.org/";
                 break;
-                
+            case 13: 
+                var freeGame = await ApiCalls.GetFreeGame();
+                Quote = $"A Free Game to Play: {freeGame.title} the genre are {freeGame.genre} you can play it" +
+                        $"on the platform {freeGame.platform} from the publisher {freeGame.publisher} " +
+                        $"the description of the game {freeGame.short_description}";
 
+                if (freeGame.screenshots == null)
+                {
+                    if (freeGame.thumbnail != null)
+                    {
+                        ImgLink = freeGame.thumbnail;
+                    }
+                }
+                else
+                {
+                    foreach (var screenshot in freeGame.screenshots)
+                    {
+                        ImgLink = screenshot.image;
+                        IsImgVisible = true;
+                        break;
+                    }
+                }
+                break;
         }
+         
         IsQuoteVisible = true;
     }
     private async void ApiCallImg()

@@ -20,26 +20,9 @@ https://uselessfacts.jsph.pl/ --Done
 https://techy-api.vercel.app/ --Done
 https://kinduff.github.io/dog-api/ --Done
 https://github.com/surhud004/Foodish#readme -- Done
-https://www.openbrewerydb.org/
-https://punkapi.com/
-https://github.com/evz/tacofancy-api
-https://github.com/andyklimczak/TheReportOfTheWeek-API
-https://whiskyhunter.net/api/
-https://amiiboapi.com/
-https://github.com/namakurohman93/autochess-vng-api
-https://boardgamegeek.com/wiki/page/BGG_XML_API2
-https://www.cheapshark.com/api
-https://www.chess.com/news/view/published-data-api
-https://comicvine.gamespot.com/api/documentation
-https://crossuniverse.net/apiDocs/
-https://bungie-net.github.io/multi/index.html
-https://documenter.getpostman.com/view/14059948/TzecB4fH
-https://disneyapi.dev/
-https://open5e.com/
-https://ffxivcollect.com/
-https://xivapi.com/
-https://docs.forza-api.tk/
-https://www.freetogame.com/api-doc
+https://www.openbrewerydb.org/ --Done  
+https://www.chess.com/news/view/published-data-api --Maybe
+https://www.freetogame.com/api-doc --Done
 https://api.funtranslations.com/
 https://github.com/sameerkumar18/geek-joke-api
 https://genshin.dev/

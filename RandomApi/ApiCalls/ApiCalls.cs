@@ -14,7 +14,7 @@ public class ApiCalls
     private static Random random = new();
     private static ObjectIds ObjectsIds = new();
     private static Authors Authors = new();
-
+    private static List<string> FreeGamesIds = new();
 
     public async void Init()
     {
@@ -22,6 +22,30 @@ public class ApiCalls
         ObjectsIds = await GetIn<ObjectIds>("search?q=*&hasImages=true",
             "https://collectionapi.metmuseum.org/public/collection/v1/");
         Authors = await GetIn<Authors>("author", "https://poetrydb.org/");
+       await LoadFreeGamesIds();
+    }
+
+    private async Task LoadFreeGamesIds()
+    {
+        var allgames = await GetInString("games", "https://www.freetogame.com/api/");
+        do
+        {
+            var indexIDStart = allgames.IndexOf("{\"id\":");
+            var IndesTitleStart = allgames.IndexOf("\"title\":");
+            var IndexEndJsonObject = allgames.IndexOf("freetogame_profile_url");
+            
+            var substring = allgames.Substring(indexIDStart, IndesTitleStart);
+
+            var indexOf = substring.IndexOf(":");
+
+            FreeGamesIds.Add(substring.Substring(indexOf+1,substring.IndexOf(",")-indexOf-1));
+            allgames = allgames.Substring(IndexEndJsonObject+22);
+            if (!allgames.Contains("id"))
+            {
+                break;
+            }
+
+        } while (true);
     }
 
     public async Task<string> CatFacts()
@@ -166,6 +190,18 @@ public class ApiCalls
         return result[0];
     }
 
+    public async Task<FreeGames> GetFreeGame()
+    {
+        if (FreeGamesIds.Count == 0)
+        {
+            Thread.Sleep(2500);
+        }
+        var result = await GetIn<FreeGames>($"game?id={FreeGamesIds[random.Next(0,FreeGamesIds.Count)]}", "https://www.freetogame.com/api/");
+        return result;
+        
+    }
+    
+    
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {
         using var client = new HttpClient();
@@ -176,6 +212,21 @@ public class ApiCalls
         if (response.IsSuccessStatusCode)
         {
             return await response.Content.ReadFromJsonAsync<T>();
+        }
+
+        return default;
+    }
+    
+    private async Task<string> GetInString(string requestUri, string baseUrl)
+    {
+        using var client = new HttpClient();
+        client.BaseAddress = new Uri(baseUrl);
+        client.DefaultRequestHeaders.Accept.Clear();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        var response = await client.GetAsync(requestUri);
+        if (response.IsSuccessStatusCode)
+        {
+            return await response.Content.ReadAsStringAsync();
         }
 
         return default;
