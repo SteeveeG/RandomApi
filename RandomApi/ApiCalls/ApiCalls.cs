@@ -321,11 +321,28 @@ public class ApiCalls
         
     }
     
-        public async Task<JokeResponse> GetAnotherJoke()
+    public async Task<JokeResponse> GetAnotherJoke()
     {
         var result = await GetIn<JokeResponse>("Any?type=single", "https://v2.jokeapi.dev/joke/");
         return result;
 
+    }
+    public async Task<RickMortyCharacter> GetRickAndMortyCharacter()
+    {
+        var result = await GetIn<RickMortyCharacter>($"character/{random.Next(0,827)}", "https://rickandmortyapi.com/api/");
+        return result;
+    }
+
+    public async Task<SteamStats> GetSteamStats()
+    {
+        var result = await GetIn<SteamStats>("about/stats", "https://www.valvesoftware.com/de/");
+        return result;
+    }
+
+    public async Task<SteamStats> GetNextMcuMovie()
+    {
+        var result = await GetIn<SteamStats>("api", "https://dev.whenisthenextmcufilm.com/");
+        return result;
     }
 
 

@@ -25,14 +25,9 @@ https://www.chess.com/news/view/published-data-api --Maybe
 https://www.freetogame.com/api-doc --Done
 https://api.funtranslations.com/ --Currently Problems in Get Calls
 https://github.com/sameerkumar18/geek-joke-api --Done
-https://sv443.net/jokeapi/v2/
-https://magicthegathering.io/
-https://api.mcsrvstat.us/
-https://rickandmortyapi.com/
-https://rps101.pythonanywhere.com/api
-https://github.com/JessVel/sakura-card-captor-api
-https://github.com/Revadike/InternalSteamWebAPI/wiki
-https://tetr.io/about/api/
+https://sv443.net/jokeapi/v2/ --Done
+https://rickandmortyapi.com/ --Done
+https://github.com/Revadike/InternalSteamWebAPI/wiki --Done
 https://github.com/DiljotSG/MCU-Countdown
 https://ygoprodeck.com/api-guide/
 https://country.is/

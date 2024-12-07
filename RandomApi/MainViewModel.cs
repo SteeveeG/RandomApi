@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 15)
+         switch (/*random.Next() % 4*/ 18)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -301,6 +301,25 @@ public class MainViewModel : ViewModelBase
                 var anotherjoke = await ApiCalls.GetAnotherJoke();
                 Quote = anotherjoke.joke;
                 ApiWebAddress = "https://github.com/sameerkumar18/geek-joke-api";
+                break;
+            case 16:
+                var rickMortyCharacter = await ApiCalls.GetRickAndMortyCharacter();
+                Quote = "Here is a Character from The Series Rick and Morty: " +
+                        $"the Name is {rickMortyCharacter.name}, currently {rickMortyCharacter.status}" +
+                        $" and has the gender {rickMortyCharacter.gender}";
+                IsImgVisible = true;
+                ImgLink = rickMortyCharacter.image;
+                ApiWebAddress = "https://www.rickmorty.com/";
+                break;
+            case 17:
+                var stats = await ApiCalls.GetSteamStats();
+                Quote = $"Right now on Steam there are {stats.users_online} users online and {stats.users_ingame} are in a game";
+                ApiWebAddress = "https://github.com/Revadike/InternalSteamWebAPI?tab=readme-ov-file";
+                break;
+            case 18:
+
+
+
                 break;
         }
          
