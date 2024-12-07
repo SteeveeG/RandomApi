@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 14)
+         switch (/*random.Next() % 4*/ 15)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -295,6 +295,11 @@ public class MainViewModel : ViewModelBase
             case 14:
                 var joke = await ApiCalls.GetJoke();
                 Quote = joke.joke;
+                ApiWebAddress = "https://github.com/sameerkumar18/geek-joke-api";
+                break;
+            case 15:
+                var anotherjoke = await ApiCalls.GetAnotherJoke();
+                Quote = anotherjoke.joke;
                 ApiWebAddress = "https://github.com/sameerkumar18/geek-joke-api";
                 break;
         }

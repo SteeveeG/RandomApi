@@ -316,12 +316,19 @@ public class ApiCalls
     }
     public async Task<Joke> GetJoke()
     {
-        var result = await GetIn<Joke>($"api?format=json", "https://geek-jokes.sameerkumar.website/");
+        var result = await GetIn<Joke>("api?format=json", "https://geek-jokes.sameerkumar.website/");
         return result;
         
     }
     
-    
+        public async Task<JokeResponse> GetAnotherJoke()
+    {
+        var result = await GetIn<JokeResponse>("Any?type=single", "https://v2.jokeapi.dev/joke/");
+        return result;
+
+    }
+
+
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {
         using var client = new HttpClient();
