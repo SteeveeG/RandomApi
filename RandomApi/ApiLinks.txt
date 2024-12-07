@@ -23,8 +23,8 @@ https://github.com/surhud004/Foodish#readme -- Done
 https://www.openbrewerydb.org/ --Done  
 https://www.chess.com/news/view/published-data-api --Maybe
 https://www.freetogame.com/api-doc --Done
-https://api.funtranslations.com/
-https://github.com/sameerkumar18/geek-joke-api
+https://api.funtranslations.com/ --Currently Problems in Get Calls
+https://github.com/sameerkumar18/geek-joke-api --Done
 https://genshin.dev/
 https://github.com/favware/graphql-pokemon
 https://sv443.net/jokeapi/v2/

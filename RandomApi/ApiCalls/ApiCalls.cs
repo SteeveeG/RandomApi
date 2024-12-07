@@ -314,6 +314,12 @@ public class ApiCalls
         return result;
         
     }
+    public async Task<Joke> GetJoke()
+    {
+        var result = await GetIn<Joke>($"api?format=json", "https://geek-jokes.sameerkumar.website/");
+        return result;
+        
+    }
     
     
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
