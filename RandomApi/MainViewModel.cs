@@ -317,9 +317,11 @@ public class MainViewModel : ViewModelBase
                 ApiWebAddress = "https://github.com/Revadike/InternalSteamWebAPI?tab=readme-ov-file";
                 break;
             case 18:
-
-
-
+                var nexMcuMovie = await ApiCalls.GetNextMcuMovie();
+                Quote = $"in {nexMcuMovie.days_until} days the new Mcu Movie {nexMcuMovie.title} will be released its on the {nexMcuMovie.release_date}";
+                ImgLink = nexMcuMovie.poster_url;
+                ApiWebAddress = "https://github.com/DiljotSG/MCU-Countdown";
+                IsImgVisible = true;
                 break;
         }
          

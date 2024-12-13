@@ -28,44 +28,7 @@ https://github.com/sameerkumar18/geek-joke-api --Done
 https://sv443.net/jokeapi/v2/ --Done
 https://rickandmortyapi.com/ --Done
 https://github.com/Revadike/InternalSteamWebAPI/wiki --Done
-https://github.com/DiljotSG/MCU-Countdown
-https://ygoprodeck.com/api-guide/
-https://country.is/
-https://developers.google.com/earth-engine/
-https://stefanbohacek.com/project/hellosalut-api/
-https://ip2country.info/
-https://daten.berlin.de/
-https://ckan.multimediagdansk.pl/en
-https://otwartedane.gdynia.pl/en/api_doc.html
-https://hri.fi/en_gb/
-https://opendata.city-adm.lviv.ua/
-https://data.nantesmetropole.fr/pages/home/
-https://opendata.cityofnewyork.us/
-https://open.toronto.ca/
-https://dadosabertos.bcb.gov.br/
-https://apikijangportal.bnm.gov.my/
-https://datausa.io/about/api/
-https://www.fbi.gov/wanted/api
-https://data.ibb.gov.tr/
-https://www.data.act.gov.au/
-https://www.data.act.gov.au/
-https://www.data.gov.au/home
-https://www.data.gv.at/
-https://data.gov.be/en
-https://open.canada.ca/en
-https://www.govdata.de/
-https://www.dane.gov.co/
-https://data.gov.cy/?language=en
-https://data.gov.cz/english/
-https://www.opendata.dk/
-https://avaandmed.eesti.ee/instructions/opendata-dataset-api
-https://www.avoindata.fi/en
-https://www.data.gouv.fr/fr/
-https://data.gov.gr/
-https://www.data.gov.in/
-https://data.gov.ie/pages/developers
-https://data.gov.ie/pages/developers
-https://dados.gov.pt/en/docapi/
+https://github.com/DiljotSG/MCU-Countdown --Done
 https://api.usaspending.gov/
 https://covidtracking.com/data/api/version-2
 https://api.covid19tracker.ca/docs/1.0/overview

@@ -207,5 +207,14 @@ public class Api
 
         //Assert
         Assert.That(response, Is.Not.Null);
+    }  
+    [Test]
+    public async Task GetNextMcuMovie_ReturnsNextMcuMovie()
+    {
+        //Act
+        var response = await ApiCalls.GetNextMcuMovie();
+
+        //Assert
+        Assert.That(response, Is.Not.Null);
     }
 }

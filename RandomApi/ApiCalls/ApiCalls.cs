@@ -339,9 +339,9 @@ public class ApiCalls
         return result;
     }
 
-    public async Task<SteamStats> GetNextMcuMovie()
+    public async Task<Mcu> GetNextMcuMovie()
     {
-        var result = await GetIn<SteamStats>("api", "https://dev.whenisthenextmcufilm.com/");
+        var result = await GetIn<Mcu>("api", "https://dev.whenisthenextmcufilm.com/");
         return result;
     }
 
