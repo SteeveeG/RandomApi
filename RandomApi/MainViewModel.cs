@@ -162,7 +162,7 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 18)
+         switch (/*random.Next() % 4*/ 21)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -322,6 +322,20 @@ public class MainViewModel : ViewModelBase
                 ImgLink = nexMcuMovie.poster_url;
                 ApiWebAddress = "https://github.com/DiljotSG/MCU-Countdown";
                 IsImgVisible = true;
+                break;
+            case 19:
+                var covidStats = await ApiCalls.GetCovidStats();
+                Quote =$"Here are the latest COVID-19 statistics: The data is based on {covidStats.latest_date}. " +
+                       $"There were {covidStats.change_cases} changes compared to the previous update. " +
+                       $"There was {covidStats.change_fatalities} fatality change compared to the previous update. " +
+                       $"The total cases were {covidStats.total_cases}, and the total fatal cases were also {covidStats.total_fatalities}.";
+                ApiWebAddress = "https://api.covid19tracker.ca/docs/1.0/overview";
+                break;
+
+            case 20:
+                var randomGenre = await ApiCalls.GetRandomGenre();
+                Quote = $"A new Genre For your Story if you need one: {randomGenre}";
+                ApiWebAddress = "https://binaryjazz.us/genrenator-api/";
                 break;
         }
          

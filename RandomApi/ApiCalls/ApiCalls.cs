@@ -344,7 +344,22 @@ public class ApiCalls
         var result = await GetIn<Mcu>("api", "https://dev.whenisthenextmcufilm.com/");
         return result;
     }
+    public async Task<Models.Data> GetCovidStats()
+    {
+        var result = await GetIn<Covid>("summary", "https://api.covid19tracker.ca/");
+        return result.data[0];
+    }
+    public async Task<string> GetRandomGenre()
+    {
+        var result = await GetIn<string>("genre/", "https://binaryjazz.us/wp-json/genrenator/v1/");
+        return result;
+    }
 
+    public async Task<string> GetSpaceFlightNews()
+    {
+        var result = await GetIn<string>("v4/articles/?limit=1&ordering=", "https://api.spaceflightnewsapi.net/");
+        return result;
+    }
 
     private async Task<T> GetIn<T>(string requestUri, string baseUrl)
     {

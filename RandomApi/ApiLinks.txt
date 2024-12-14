@@ -29,17 +29,9 @@ https://sv443.net/jokeapi/v2/ --Done
 https://rickandmortyapi.com/ --Done
 https://github.com/Revadike/InternalSteamWebAPI/wiki --Done
 https://github.com/DiljotSG/MCU-Countdown --Done
-https://api.usaspending.gov/
-https://covidtracking.com/data/api/version-2
-https://api.covid19tracker.ca/docs/1.0/overview
-https://github.com/Simperfy/Covid-19-API-Philippines-DOH
-https://github.com/M-Media-Group/Covid-19-API
-https://github.com/workforce-data-initiative/skills-api/wiki/API-Overview
-https://docs.ksoft.si/api/lyrics-api
-https://binaryjazz.us/genrenator-api/
-https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search
-https://tastedive.com/read/api
-https://mediastack.com/
+https://api.covid19tracker.ca/docs/1.0/overview --Done
+https://binaryjazz.us/genrenator-api/ --Done
+https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search --Maybe
 https://spaceflightnewsapi.net/
 https://archive.readme.io/reference/getting-started
 https://18f.github.io/API-All-the-X/
