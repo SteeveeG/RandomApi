@@ -2,15 +2,11 @@ namespace RandomApi.Models;
 
 public class SpaceFlightNews
 {
-    public int count { get; set; }
-    public string next { get; set; }
-    public string previous { get; set; }
     public List<Result> results { get; set; }
 }
 
 public class Result
 {
-    public int id { get; set; }
     public string title { get; set; }
     public string url { get; set; }
     public string image_url { get; set; }

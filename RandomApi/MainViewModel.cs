@@ -136,33 +136,25 @@ public class MainViewModel : ViewModelBase
     public MainViewModel()
     {
         ApiCalls = new ApiCalls.ApiCalls();
-        ApiCallCommand = new DelegateCommand(ApiCall);
+        ApiCallCommand = new DelegateCommand(Call);
         VisitApiWebCommand = new DelegateCommand(VisitApiWeb);
         IsImgVisible = true;
         IsQuoteVisible = true;
         ApiCalls.Init();
     }
 
-    private async void ApiCall()
+    private async void Call()
     {
         var random = new Random();
-        switch (0)
-        {
-            case 0:
-                ApiCallQuotes();
-                break;
-            case 1: 
-                ApiCallImg();
-                break;
-        }
+        ApiCall();
       
     }
 
-    private async void ApiCallQuotes()
+    private async void ApiCall()
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 21)
+         switch (/*random.Next() % 4*/ 29)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
@@ -337,30 +329,29 @@ public class MainViewModel : ViewModelBase
                 Quote = $"A new Genre For your Story if you need one: {randomGenre}";
                 ApiWebAddress = "https://binaryjazz.us/genrenator-api/";
                 break;
-        }
-         
-        IsQuoteVisible = true;
-    }
-    private async void ApiCallImg()
-    {
-        var random = new Random();
-        IsQuoteVisible = false;
-        isImgVisible = false;
-        switch (/*random.Next() % 4*/5)
-        {
-            case 0:
-                ImgLink  = await ApiCalls.RandomDuk();
+            case 21:
+                var spaceFlightNews = await ApiCalls.GetSpaceFlightNews();
+                Quote = $"{spaceFlightNews.title}\n{spaceFlightNews.summary}";
+                ImgLink = spaceFlightNews.image_url;
+                IsImgVisible = true;
+                ApiWebAddress = "https://spaceflightnewsapi.net/";
+                break;
+            case 22:
+                ImgLink  = await ApiCalls.RandomDuk();    
+                IsImgVisible = true;
                 ApiWebAddress = "https://random-d.uk/api";
                 break;
-            case 1:
-                ImgLink = await ApiCalls.RandomFox();
+            case 23:
+                ImgLink = await ApiCalls.RandomFox();              
+                IsImgVisible = true;
                 ApiWebAddress = "https://randomfox.ca/";
                 break;
-            case 2:
+            case 24:
                 ImgLink = await ApiCalls.WaifuPics();
+                IsImgVisible = true;
                 ApiWebAddress = "https://waifu.pics/";
                 break;   
-            case 3:
+            case 25:
                 var result = await ApiCalls.RandomArtWork();
                 ImgLink = result.primaryimage;
                 if (!string.IsNullOrEmpty(result.title) && !string.IsNullOrWhiteSpace(result.title))
@@ -373,25 +364,36 @@ public class MainViewModel : ViewModelBase
                 }
                 IsQuoteVisible = true;
                 ApiWebAddress = "https://metmuseum.github.io/";
+                IsImgVisible = true;
                 break;   
-            case 4:
+            case 26:
                 ImgLink = await ApiCalls.RandomNoiseColor();
                 ApiWebAddress = "https://metmuseum.github.io/";
                 Quote = "A Random Noise Color";
-                IsQuoteVisible = true;
+                IsQuoteVisible = true; 
+                IsImgVisible = true;
                 break;
-            case 5:
+            case 27:
                 var foodPic = await ApiCalls.GetFoodPic();
                 ImgLink = foodPic.image;
                 Quote = "Yummy";
                 IsQuoteVisible = true;
+                IsImgVisible = true;
                 break;
-            
+            case 28:
+                var insult = await ApiCalls.GetRandomInsult();
+                Quote = insult.insult;
+                ApiWebAddress = "https://evilinsult.com/api/";
+                break;
+            case 29:
+                var advice = await ApiCalls.GetAdvice();
+                Quote = advice.slip.advice;
+                ApiWebAddress = "https://api.adviceslip.com/";
+                break;
         }
-        IsImgVisible = true;
+         
+        IsQuoteVisible = true;
     }
-    
-    
    
     private void VisitApiWeb()
     {

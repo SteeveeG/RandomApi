@@ -355,9 +355,19 @@ public class ApiCalls
         return result;
     }
 
-    public async Task<string> GetSpaceFlightNews()
+    public async Task<Result> GetSpaceFlightNews()
     {
-        var result = await GetIn<string>("v4/articles/?limit=1&ordering=", "https://api.spaceflightnewsapi.net/");
+        var result = await GetIn<SpaceFlightNews>("v4/articles/?limit=1&ordering=", "https://api.spaceflightnewsapi.net/");
+        return result.results.First();
+    }
+    public async Task<Insult> GetRandomInsult()
+    {
+        var result = await GetIn<Insult>("generate_insult.php?lang=en&type=json", "https://evilinsult.com/");
+        return result;
+    }
+    public async Task<Advice> GetAdvice()
+    {
+        var result = await GetIn<Advice>("advice?type=json", "https://api.adviceslip.com/");
         return result;
     }
 

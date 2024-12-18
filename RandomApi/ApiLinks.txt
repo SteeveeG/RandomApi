@@ -32,16 +32,9 @@ https://github.com/DiljotSG/MCU-Countdown --Done
 https://api.covid19tracker.ca/docs/1.0/overview --Done
 https://binaryjazz.us/genrenator-api/ --Done
 https://lyricsovh.docs.apiary.io/#reference/0/lyrics-of-a-song/search --Maybe
-https://spaceflightnewsapi.net/
-https://archive.readme.io/reference/getting-started
-https://18f.github.io/API-All-the-X/
-https://www.blackhistoryapi.io/docs
-https://open.africa/
-https://www.nobelprize.org/organization/developer-zone-2/
-https://newcastle.urbanobservatory.ac.uk/api_docs/
-https://www.mediawiki.org/wiki/API:Main_page
-https://evilinsult.com/api/
-https://api.adviceslip.com/
+https://spaceflightnewsapi.net/ --Done
+https://evilinsult.com/api/ --Done
+https://api.adviceslip.com/ --Done
 https://forismatic.com/en/api/
 https://icanhazdadjoke.com/api
 https://inspiration.goprogram.ai/docs/
