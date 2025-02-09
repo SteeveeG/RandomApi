@@ -154,16 +154,19 @@ public class MainViewModel : ViewModelBase
     {
         var random = new Random();
         IsImgVisible = false;
-         switch (/*random.Next() % 4*/ 29)
+        IsQuoteVisible = false;
+         switch (random.Next() %  28)
         {
             case 0:
             Quote = await ApiCalls.CatFacts();
             ApiWebAddress = "https://github.com/alexwohlbruck/cat-facts";
-            break;
+                IsQuoteVisible = true;
+                break;
             case 1:
                 var animeQuoteResult = await ApiCalls.AnimeQuote();
                 Quote = animeQuoteResult.data.content + "\n" + animeQuoteResult.data.anime.name + " ~" + animeQuoteResult.data.character.name;
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
+                IsQuoteVisible = true;
                 break;
             case 2:
                 var animeRecommendationResult = await ApiCalls.AnimeRecommendation();
@@ -188,6 +191,7 @@ public class MainViewModel : ViewModelBase
                     Quote += $"The Story is about: {animeRecommendationResult.data.synopsis}";
                 }
                 ApiWebAddress = "https://jikan.moe/";
+                IsQuoteVisible = true;
                 break;
             case 3:   
                 //todo Null Exception Fixen
@@ -201,6 +205,7 @@ public class MainViewModel : ViewModelBase
                     ImgLink = googleBooks.items[i].volumeInfo.imageLinks.thumbnail;
                 }
                 ApiWebAddress = "https://github.com/Animechan-API/animechan";
+                IsQuoteVisible = true;
                 break;
             case 4:
                 var listPoem = await ApiCalls.RandomPoem();
@@ -210,6 +215,7 @@ public class MainViewModel : ViewModelBase
                 var finishedPoem = poem.Lines.Aggregate(string.Empty, (current, line) => current + (line + "\n"));
                 Quote = finishedPoem.Remove(finishedPoem.Length - 1);
                 ApiWebAddress = "https://github.com/thundercomb/poetrydb";
+                IsQuoteVisible = true;
                 break;
             case 5:
                 var holidays = await ApiCalls.GetHolidays();
@@ -218,35 +224,42 @@ public class MainViewModel : ViewModelBase
                     $"one of the upcoming holidays is : {holiday.name}" +
                     $"\noriginal name : {holiday.localName}" +
                     $"\nthis is on {holiday.date.Value:dd/M/yyyy} and is celebrated in the country: {countries[holiday.countryCode]}";
+                IsQuoteVisible = true;
                 break;
             case 6:
                 var chuckNorrisJoke = await ApiCalls.GetChuckNorrisJoke();
                 Quote = chuckNorrisJoke.value;
                 ApiWebAddress = chuckNorrisJoke.url;
+                IsQuoteVisible = true;
                 break;
             case 7:
                 var corporateBullshit = await ApiCalls.GetCorporateBullshitPhrase();
                 Quote = $"Here a Dumb sentence for your next Bullshit Meeting:\n{corporateBullshit.phrase}";
                 ApiWebAddress = "https://github.com/sameerkumar18/corporate-bs-generator-api";
+                IsQuoteVisible = true;
                 break;
             case 8:
                 var excuser = await ApiCalls.GetExcuse();
                 Quote = $"here an excuse: {excuser.excuse}";
+                IsQuoteVisible = true;
                 break;
             case 9:
                 var uselessFact = await ApiCalls.GetUselessFact();
                 Quote = uselessFact.text;
                 ApiWebAddress = "https://uselessfacts.jsph.pl/";
+                IsQuoteVisible = true;
                 break;
             case 10:
                 var uselessTechSentence = await ApiCalls.GetUselessTechSentence();
                 Quote = $"Here a useless Tech Sentence: {uselessTechSentence.message}";
                 ApiWebAddress = "https://uselessfacts.jsph.pl/";
+                IsQuoteVisible = true;
                 break;
             case 11:
                 var dog = await ApiCalls.GetDogFact();
                 Quote = dog.data[0].attributes.body;
                 ApiWebAddress = "https://dogapi.dog/";
+                IsQuoteVisible = true;
                 break;
             case 12:
                 var brewery = await ApiCalls.GetBreweries();
@@ -255,9 +268,9 @@ public class MainViewModel : ViewModelBase
                 if (brewery.country != null)
                 {
                     Quote += $" with the Website {brewery.website_url}";
-
                 }
                 ApiWebAddress = "https://www.openbrewerydb.org/";
+                IsQuoteVisible = true;
                 break;
             case 13: 
                 var freeGame = await ApiCalls.GetFreeGame();
@@ -281,17 +294,19 @@ public class MainViewModel : ViewModelBase
                         break;
                     }
                 }
-
+                IsQuoteVisible = true;
                 ApiWebAddress = "https://www.freetogame.com/api-doc";
                 break;
             case 14:
                 var joke = await ApiCalls.GetJoke();
                 Quote = joke.joke;
+                IsQuoteVisible = true;
                 ApiWebAddress = "https://github.com/sameerkumar18/geek-joke-api";
                 break;
             case 15:
                 var anotherjoke = await ApiCalls.GetAnotherJoke();
                 Quote = anotherjoke.joke;
+                IsQuoteVisible = true;
                 ApiWebAddress = "https://github.com/sameerkumar18/geek-joke-api";
                 break;
             case 16:
@@ -302,56 +317,56 @@ public class MainViewModel : ViewModelBase
                 IsImgVisible = true;
                 ImgLink = rickMortyCharacter.image;
                 ApiWebAddress = "https://www.rickmorty.com/";
+                IsQuoteVisible = true;
                 break;
             case 17:
-                var stats = await ApiCalls.GetSteamStats();
-                Quote = $"Right now on Steam there are {stats.users_online} users online and {stats.users_ingame} are in a game";
-                ApiWebAddress = "https://github.com/Revadike/InternalSteamWebAPI?tab=readme-ov-file";
-                break;
-            case 18:
                 var nexMcuMovie = await ApiCalls.GetNextMcuMovie();
                 Quote = $"in {nexMcuMovie.days_until} days the new Mcu Movie {nexMcuMovie.title} will be released its on the {nexMcuMovie.release_date}";
                 ImgLink = nexMcuMovie.poster_url;
                 ApiWebAddress = "https://github.com/DiljotSG/MCU-Countdown";
                 IsImgVisible = true;
+                IsQuoteVisible = true;
                 break;
-            case 19:
+            case 18:
                 var covidStats = await ApiCalls.GetCovidStats();
                 Quote =$"Here are the latest COVID-19 statistics: The data is based on {covidStats.latest_date}. " +
                        $"There were {covidStats.change_cases} changes compared to the previous update. " +
                        $"There was {covidStats.change_fatalities} fatality change compared to the previous update. " +
                        $"The total cases were {covidStats.total_cases}, and the total fatal cases were also {covidStats.total_fatalities}.";
                 ApiWebAddress = "https://api.covid19tracker.ca/docs/1.0/overview";
+                IsQuoteVisible = true;
                 break;
 
-            case 20:
+            case 19:
                 var randomGenre = await ApiCalls.GetRandomGenre();
                 Quote = $"A new Genre For your Story if you need one: {randomGenre}";
                 ApiWebAddress = "https://binaryjazz.us/genrenator-api/";
+                IsQuoteVisible = true;
                 break;
-            case 21:
+            case 20:
                 var spaceFlightNews = await ApiCalls.GetSpaceFlightNews();
                 Quote = $"{spaceFlightNews.title}\n{spaceFlightNews.summary}";
                 ImgLink = spaceFlightNews.image_url;
                 IsImgVisible = true;
+                IsQuoteVisible = true;
                 ApiWebAddress = "https://spaceflightnewsapi.net/";
                 break;
-            case 22:
+            case 21:
                 ImgLink  = await ApiCalls.RandomDuk();    
                 IsImgVisible = true;
                 ApiWebAddress = "https://random-d.uk/api";
                 break;
-            case 23:
+            case 22:
                 ImgLink = await ApiCalls.RandomFox();              
                 IsImgVisible = true;
                 ApiWebAddress = "https://randomfox.ca/";
                 break;
-            case 24:
+            case 23:
                 ImgLink = await ApiCalls.WaifuPics();
                 IsImgVisible = true;
                 ApiWebAddress = "https://waifu.pics/";
                 break;   
-            case 25:
+            case 24:
                 var result = await ApiCalls.RandomArtWork();
                 ImgLink = result.primaryimage;
                 if (!string.IsNullOrEmpty(result.title) && !string.IsNullOrWhiteSpace(result.title))
@@ -366,33 +381,34 @@ public class MainViewModel : ViewModelBase
                 ApiWebAddress = "https://metmuseum.github.io/";
                 IsImgVisible = true;
                 break;   
-            case 26:
+            case 25:
                 ImgLink = await ApiCalls.RandomNoiseColor();
                 ApiWebAddress = "https://metmuseum.github.io/";
                 Quote = "A Random Noise Color";
                 IsQuoteVisible = true; 
                 IsImgVisible = true;
                 break;
-            case 27:
+            case 26:
                 var foodPic = await ApiCalls.GetFoodPic();
                 ImgLink = foodPic.image;
                 Quote = "Yummy";
                 IsQuoteVisible = true;
                 IsImgVisible = true;
                 break;
-            case 28:
+            case 27:
                 var insult = await ApiCalls.GetRandomInsult();
                 Quote = insult.insult;
                 ApiWebAddress = "https://evilinsult.com/api/";
+                IsQuoteVisible = true;
                 break;
-            case 29:
+            case 28:
                 var advice = await ApiCalls.GetAdvice();
                 Quote = advice.slip.advice;
                 ApiWebAddress = "https://api.adviceslip.com/";
+                IsQuoteVisible = true;
                 break;
         }
-         
-        IsQuoteVisible = true;
+
     }
    
     private void VisitApiWeb()

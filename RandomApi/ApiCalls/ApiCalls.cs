@@ -194,9 +194,16 @@ public class ApiCalls
 
     public async Task<MetObject> RandomArtWork()
     {
-        var result = await GetIn<MetObject>(
+        MetObject result;
+        do
+        {
+             result = await GetIn<MetObject>(
             $"objects/{ObjectsIds.objectIds[random.Next(0, ObjectsIds.objectIds.Count)]}",
             "https://collectionapi.metmuseum.org/public/collection/v1/");
+
+        }
+        while (result == null);
+         
         return result;
     }
 
@@ -332,13 +339,6 @@ public class ApiCalls
         var result = await GetIn<RickMortyCharacter>($"character/{random.Next(0,827)}", "https://rickandmortyapi.com/api/");
         return result;
     }
-
-    public async Task<SteamStats> GetSteamStats()
-    {
-        var result = await GetIn<SteamStats>("about/stats", "https://www.valvesoftware.com/de/");
-        return result;
-    }
-
     public async Task<Mcu> GetNextMcuMovie()
     {
         var result = await GetIn<Mcu>("api", "https://dev.whenisthenextmcufilm.com/");
@@ -376,7 +376,7 @@ public class ApiCalls
         using var client = new HttpClient();
         client.BaseAddress = new Uri(baseUrl);
         client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));  
         var response = await client.GetAsync(requestUri);
         if (response.IsSuccessStatusCode)
         {

@@ -32,11 +32,9 @@
                     FontFamily="{StaticResource JacquardaBastarda9}"
                     Style="{StaticResource Button1}"
                     Command="{Binding ApiCallCommand}" />
-            <Button Height="50" Content="..." FontSize="35"
-                     Width="50" Name="btn4"
-                    FontFamily="{StaticResource JacquardaBastarda9}"
-                    Style="{StaticResource Button1}"
-                    Command="{Binding ApiCallCommand}" />
+            <Button Content="þew raNDom desøGú" Height="50" Width="300"
+                    Click="ChangeStyle" Name="btn2" 
+                    Style="{StaticResource Button1}"/>
         </StackPanel>
         <Grid>
             <Grid.RowDefinitions>
@@ -49,9 +47,9 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="35 0">
                 <StackPanel Orientation="Horizontal" >
-                    <Button Content="þew raNDom desøGú" Height="50" Width="300"
-                        Click="ChangeStyle" Name="btn2" Visibility="Hidden"
-                        Style="{StaticResource Button1}"/>
+                    <!-- <Button Content="þew raNDom desøGú" Height="50" Width="300" -->
+                    <!--     Click="ChangeStyle" Name="btn2" Visibility="Hidden" -->
+                    <!--     Style="{StaticResource Button1}"/> -->
                 </StackPanel>
             </StackPanel>
             <Button Grid.Column="1"  Content="Link TO Aùø" Height="50" Width="300"
@@ -60,24 +58,45 @@
                     Command="{Binding VisitApiWebCommand}" />
         </Grid>
 
+        <!-- <Grid Row="3" Margin="35"> -->
+        <!--     <Grid.RowDefinitions> -->
+        <!--         <RowDefinition /> -->
+        <!--         <RowDefinition /> -->
+        <!--     </Grid.RowDefinitions> -->
+        <!--     <Image Grid.Row="0" Source="{Binding ImgLink}" MaxHeight="400" -->
+        <!-- -->
+        <!--                        Visibility="{Binding IsImgVisible , -->
+        <!--          Converter={StaticResource BoolToVisibilityConverter}}" /> -->
+        <!--     <TextBlock Grid.Row="1" -->
+        <!--                Name="Quote" -->
+        <!--                Style="{StaticResource TextBlock1}" -->
+        <!--                FontSize="30" TextWrapping="Wrap" -->
+        <!--                Text="{Binding Quote}" -->
+        <!--                Visibility="{Binding IsQuoteVisible , -->
+        <!--          Converter={StaticResource BoolToVisibilityConverter}}" -->
+        <!--                FontFamily="{StaticResource InconsolataCondensed}" /> -->
+        <!-- </Grid> -->
         <Grid Row="3" Margin="35">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Source="{Binding ImgLink}" MaxHeight="400"
 
-                               Visibility="{Binding IsImgVisible ,
-                 Converter={StaticResource BoolToVisibilityConverter}}" />
-            <TextBlock Grid.Row="1"
-                       Name="Quote"
-                       Style="{StaticResource TextBlock1}"
-                       FontSize="30" TextWrapping="Wrap"
-                       Text="{Binding Quote}"
-                       Visibility="{Binding IsQuoteVisible ,
-                 Converter={StaticResource BoolToVisibilityConverter}}"
-                       FontFamily="{StaticResource InconsolataCondensed}" />
+            <Image Grid.Row="0" Source="{Binding ImgLink}" MaxHeight="400"
+                   Visibility="{Binding IsImgVisible,
+             Converter={StaticResource BoolToVisibilityConverter}}" />
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+                <TextBlock Name="Quote"
+                           Style="{StaticResource TextBlock1}"
+                           FontSize="30" TextWrapping="Wrap"
+                           Text="{Binding Quote}"
+                           Visibility="{Binding IsQuoteVisible,
+             Converter={StaticResource BoolToVisibilityConverter}}"
+                           FontFamily="{StaticResource InconsolataCondensed}" />
+            </ScrollViewer>
         </Grid>
+
     </StackPanel>
 
 
