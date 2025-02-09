@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Globalization;
 using RandomApi.Helpers;
 using RandomApi.Models;
@@ -413,6 +414,11 @@ public class MainViewModel : ViewModelBase
    
     private void VisitApiWeb()
     {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = ApiWebAddress,
+            UseShellExecute = true 
+        });
     }
 
 
