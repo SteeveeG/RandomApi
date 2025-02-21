@@ -32,7 +32,7 @@
                     Click="ChangeStyle" Name="btn2" 
                     Style="{StaticResource Button1}"/>
             <Button Height="50" Content="Click Meee" FontSize="35"
-                    Width="200" Name="btn1"
+                    Width="200" Name="btn1" IsEnabled="{Binding RandomCallIsClicked}"
                     FontFamily="{StaticResource JacquardaBastarda9}"
                     Style="{StaticResource Button1}"
                     Command="{Binding ApiCallCommand}" />

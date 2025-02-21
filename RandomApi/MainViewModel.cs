@@ -12,7 +12,8 @@ public class MainViewModel : ViewModelBase
     private string imgLink;
     private bool isQuoteVisible;
     private bool isImgVisible;
- 
+    private bool randomCallIsClicked;
+
     public DelegateCommand VisitApiWebCommand { get; }
     public DelegateCommand ApiCallCommand { get; }
     private ApiCalls.ApiCalls ApiCalls { get; set; }
@@ -141,17 +142,19 @@ public class MainViewModel : ViewModelBase
         VisitApiWebCommand = new DelegateCommand(VisitApiWeb);
         IsImgVisible = true;
         IsQuoteVisible = true;
+        RandomCallIsClicked = true;
         ApiCalls.Init();
     }
 
     private async void Call()
     {
-        var random = new Random();
-        ApiCall();
-      
+        RandomCallIsClicked = false;
+        await ApiCall();
+        Thread.Sleep(100);
+        RandomCallIsClicked = true;
     }
 
-    private async void ApiCall()
+    private async Task ApiCall()
     {
         var random = new Random();
         IsImgVisible = false;
@@ -315,8 +318,8 @@ public class MainViewModel : ViewModelBase
                 Quote = "Here is a Character from The Series Rick and Morty: " +
                         $"the Name is {rickMortyCharacter.name}, currently {rickMortyCharacter.status}" +
                         $" and has the gender {rickMortyCharacter.gender}";
-                IsImgVisible = true;
                 ImgLink = rickMortyCharacter.image;
+                IsImgVisible = true;
                 ApiWebAddress = "https://www.rickmorty.com/";
                 IsQuoteVisible = true;
                 break;
@@ -464,6 +467,18 @@ public class MainViewModel : ViewModelBase
             OnPropertyChanged();
         }
     }
+
+    public bool RandomCallIsClicked
+    {
+        get => randomCallIsClicked;
+        set
+        {
+            if (value == randomCallIsClicked) return;
+            randomCallIsClicked = value;
+            OnPropertyChanged();
+        }
+    }
+
     public bool IsImgVisible
     {
         get => isImgVisible;
